@@ -174,7 +174,13 @@
 
         <div class="install-box">
           <code>$ npm install -g @centr-ai/cli</code>
-          <button class="install-copy-btn copy-btn" data-target="cmd-install">Copy</button>
+          <button class="install-copy-btn copy-btn" data-target="cmd-install" aria-label="Copy install command">
+            <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy</span>
+          </button>
           <span id="cmd-install" style="display: none">npm install -g @centr-ai/cli</span>
         </div>
 

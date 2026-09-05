@@ -272,37 +272,80 @@ a:hover {
 
 /* Install Box */
 .install-box {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   background: var(--code-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.5rem 0.75rem 0.5rem 1rem;
+  border-radius: 10px;
+  padding: 0.6rem 0.85rem 0.6rem 1.25rem;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--accent);
-  gap: 1rem;
-  max-width: 480px;
+  max-width: 500px;
   width: 100%;
   margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: var(--transition);
+}
+
+.install-box:hover {
+  border-color: var(--border-focus);
+}
+
+.install-box code {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.install-box code::-webkit-scrollbar {
+  display: none;
 }
 
 .install-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
   color: var(--text-muted);
   border-radius: 6px;
-  padding: 0.35rem 0.65rem;
-  font-size: 0.75rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.8rem;
   font-family: var(--font-sans);
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 1rem;
 }
 
 .install-copy-btn:hover {
   color: var(--text);
   border-color: var(--accent);
+  background: var(--bg-card-hover);
+  transform: translateY(-1px);
+}
+
+.install-copy-btn:active {
+  transform: translateY(0);
+}
+
+.install-copy-btn.copied {
+  color: #10b981;
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+}
+
+.install-copy-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
 /* Hero Visual */

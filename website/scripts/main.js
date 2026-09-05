@@ -54,11 +54,20 @@ function initCopyButtons() {
 
       if (text) {
         navigator.clipboard.writeText(text).then(() => {
-          const original = btn.textContent;
-          btn.textContent = 'Copied!';
+          const labelSpan = btn.querySelector('span');
+          const original = labelSpan ? labelSpan.textContent : btn.textContent;
+          if (labelSpan) {
+            labelSpan.textContent = 'Copied!';
+          } else {
+            btn.textContent = 'Copied!';
+          }
           btn.classList.add('copied');
           setTimeout(() => {
-            btn.textContent = original;
+            if (labelSpan) {
+              labelSpan.textContent = original;
+            } else {
+              btn.textContent = original;
+            }
             btn.classList.remove('copied');
           }, 2000);
         });
