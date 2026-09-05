@@ -28,7 +28,7 @@
   "homepage": "https://chiragpgauswami.github.io/CentR/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chiragpgauswami/CentR.git",
+    "url": "git+https://github.com/chiragpgauswami/CentR.git",
     "directory": "benchmarks/agent-ab"
   },
   "bugs": {
