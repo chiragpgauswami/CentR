@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
 import ora from 'ora';
-import { initializeProject } from '@centr/core';
+import { initializeProject } from '@centr-ai/core';
 import { getProjectRoot, getDatabase, formatNumber, formatDuration, handleError } from '../utils.js';
 
 export default function(program: Command) {

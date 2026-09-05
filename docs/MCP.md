@@ -1,6 +1,6 @@
 # CentR Model Context Protocol (MCP) Integration
 
-CentR provides a production-ready **Model Context Protocol (MCP)** server via `@centr/mcp`, allowing AI coding agents such as **Claude Code**, **OpenAI Codex**, and **Cursor** to query project intelligence, memory, and learnings seamlessly over standard I/O (stdio).
+CentR provides a production-ready **Model Context Protocol (MCP)** server via `@centr-ai/mcp`, allowing AI coding agents such as **Claude Code**, **OpenAI Codex**, and **Cursor** to query project intelligence, memory, and learnings seamlessly over standard I/O (stdio).
 
 ---
 
@@ -27,7 +27,7 @@ Add CentR to your Claude Code configuration:
 
 ```bash
 # Global configuration
-claude mcp add centr -- npx @centr/mcp
+claude mcp add centr -- npx @centr-ai/mcp
 
 # Or direct CLI invocation
 claude mcp add centr -- node /path/to/centr/packages/mcp/dist/index.js
@@ -55,7 +55,7 @@ Add CentR to your Cursor settings (`.cursor/mcp.json`):
   "mcpServers": {
     "centr": {
       "command": "node",
-      "args": ["./node_modules/@centr/mcp/dist/index.js"]
+      "args": ["./node_modules/@centr-ai/mcp/dist/index.js"]
     }
   }
 }
@@ -85,7 +85,7 @@ In your agent runner or configuration file:
 AI Coding Agent (Claude Code, Codex, Cursor)
                      │
                      ▼ (JSON-RPC over stdio)
-             @centr/mcp Server
+             @centr-ai/mcp Server
                      │
          ┌───────────┴───────────┐
          ▼                       ▼

@@ -19,7 +19,7 @@ This document specifies the architecture of the **reproducible Agent A/B Benchma
 
 ### What Already Exists in the Repository
 
-- **`@centr/core`**:
+- **`@centr-ai/core`**:
   - Incremental file indexing (`initializeProject`, `syncProject`).
   - AST symbol parsing with TypeScript compiler API (`parseTypeScript`).
   - SQLite storage with WAL mode and schema migrations (`CentrDatabase`).
@@ -27,16 +27,16 @@ This document specifies the architecture of the **reproducible Agent A/B Benchma
   - Context engine (`ContextEngine.generate()` for V1, `ContextEngine.generateWithBrain()` for V2).
   - Memory and learning services (`ProjectMemoryService`, `LearningService`, `SkillsService`).
   - Security filtering (`sanitizePath`, `isSecretFile`, `sanitizeForLogging`).
-- **`@centr/brain`**:
+- **`@centr-ai/brain`**:
   - Native local HTTP provider for Ollama (`OllamaProvider`).
   - Hardware detection and profiles (`minimal`, `balanced`, `quality`).
   - Strict candidate-bounded hallucination guards (`validateContextRanking`, `validateSkillSelection`).
   - SHA-256 hash cache with LRU/TTL eviction (`BrainCache`).
   - Telemetry collector (`BrainMetricsCollector`).
   - Testing providers (`MockBrainProvider`, `NullBrainProvider`).
-- **`@centr/mcp`**:
+- **`@centr-ai/mcp`**:
   - Stdio JSON-RPC MCP server exposing `project_status`, `project_search`, `project_context` (with `useBrain`), `brain_analyze_failure`, `learning_record`, `learning_search`.
-- **`@centr/cli`**:
+- **`@centr-ai/cli`**:
   - CLI commands: `init`, `sync`, `status`, `search`, `context`, `symbol`, `learn`, `skills`, `doctor`, `benchmark`, `brain`.
 
 ### What the Benchmark Harness Adds

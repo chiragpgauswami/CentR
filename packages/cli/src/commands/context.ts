@@ -1,4 +1,4 @@
-import { ContextEngine } from '@centr/core';
+import { ContextEngine } from '@centr-ai/core';
 import chalk from 'chalk';
 import { Command } from 'commander';
 import { getDatabase, getProjectId, getProjectRoot, handleError } from '../utils.js';

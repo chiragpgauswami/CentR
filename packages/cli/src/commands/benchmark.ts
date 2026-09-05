@@ -7,8 +7,8 @@ import {
   type BenchmarkRunRecord,
   type ExecutionMode,
   type ScenarioType,
-} from '@centr/benchmark-ab';
-import { ContextEngine, SearchEngine, syncProject } from '@centr/core';
+} from '@centr-ai/benchmark-ab';
+import { ContextEngine, SearchEngine, syncProject } from '@centr-ai/core';
 import chalk from 'chalk';
 import type { Command } from 'commander';
 import fs from 'node:fs';

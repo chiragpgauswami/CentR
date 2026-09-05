@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { createBrainProvider } from '@centr/brain';
+import { createBrainProvider } from '@centr-ai/brain';
 import {
   CENTR_DIR,
   CentrDatabase,
@@ -8,7 +8,7 @@ import {
   SearchEngine,
   SkillsService,
   loadConfig,
-} from '@centr/core';
+} from '@centr-ai/core';
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';

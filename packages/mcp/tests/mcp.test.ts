@@ -1,4 +1,4 @@
-import { CentrDatabase, initializeProject, loadConfig, saveConfig } from '@centr/core';
+import { CentrDatabase, initializeProject, loadConfig, saveConfig } from '@centr-ai/core';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';

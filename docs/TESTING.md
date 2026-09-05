@@ -16,22 +16,22 @@ This document describes the testing strategy, test suites, and validation method
 
 | Test Suite             | Package / Path | Focus Area                                                                                                       |
 | :--------------------- | :------------- | :--------------------------------------------------------------------------------------------------------------- |
-| `parser.test.ts`       | `@centr/core`  | AST extraction, comments/string false positive exclusion, multiline imports, arrow functions, references         |
-| `security.test.ts`     | `@centr/core`  | Path traversal attacks, sibling prefix attacks, content secret scanning, input sanitization                      |
-| `discovery.test.ts`    | `@centr/core`  | Gitignore parsing, symlink cycle prevention, language detection, secret filtering                                |
-| `storage.test.ts`      | `@centr/core`  | SQLite WAL mode, foreign keys, `PRAGMA user_version` sync, UNIQUE constraints                                    |
-| `indexer.test.ts`      | `@centr/core`  | Full project indexing, incremental sync, idempotent re-initialization                                            |
-| `search.test.ts`       | `@centr/core`  | BM25 weighted ranking across 5 sources, symbol lookup, dependency search                                         |
-| `context.test.ts`      | `@centr/core`  | Token budgeting, explainable `reason` generation, tight budget eviction                                          |
-| `memory.test.ts`       | `@centr/core`  | Project memory CRUD, FTS search, category tagging                                                                |
-| `learning.test.ts`     | `@centr/core`  | Evidence recalculation, promotion thresholds, duplicate prevention, 8-step simulated agent workflow              |
-| `skills.test.ts`       | `@centr/core`  | Skills registry, trigger matching, FTS search                                                                    |
-| `mcp.test.ts`          | `@centr/mcp`   | MCP tool execution in-process (`project_status`, `project_context`, `learning_record`, etc.)                     |
-| `stdio.test.ts`        | `@centr/mcp`   | True child-process stdio JSON-RPC protocol validation                                                            |
-| `cli.test.ts`          | `@centr/cli`   | CLI commands (`init`, `sync`, `status`, `search`, `context`, `symbol`, `learn`, `skills`, `doctor`, `benchmark`) |
-| `brain.test.ts`        | `@centr/brain` | Brain provider interface, null provider, deterministic classifier/ranker                                         |
-| `v2.test.ts`           | `@centr/brain` | Hardware detection, hallucination guards, cache TTL/LRU, metrics, Ollama client, 21-step lifecycle test          |
-| `ab-benchmark.test.ts` | `@centr/brain` | Agent A/B comparative benchmark: V1 deterministic context vs V2 hybrid context                                   |
+| `parser.test.ts`       | `@centr-ai/core`  | AST extraction, comments/string false positive exclusion, multiline imports, arrow functions, references         |
+| `security.test.ts`     | `@centr-ai/core`  | Path traversal attacks, sibling prefix attacks, content secret scanning, input sanitization                      |
+| `discovery.test.ts`    | `@centr-ai/core`  | Gitignore parsing, symlink cycle prevention, language detection, secret filtering                                |
+| `storage.test.ts`      | `@centr-ai/core`  | SQLite WAL mode, foreign keys, `PRAGMA user_version` sync, UNIQUE constraints                                    |
+| `indexer.test.ts`      | `@centr-ai/core`  | Full project indexing, incremental sync, idempotent re-initialization                                            |
+| `search.test.ts`       | `@centr-ai/core`  | BM25 weighted ranking across 5 sources, symbol lookup, dependency search                                         |
+| `context.test.ts`      | `@centr-ai/core`  | Token budgeting, explainable `reason` generation, tight budget eviction                                          |
+| `memory.test.ts`       | `@centr-ai/core`  | Project memory CRUD, FTS search, category tagging                                                                |
+| `learning.test.ts`     | `@centr-ai/core`  | Evidence recalculation, promotion thresholds, duplicate prevention, 8-step simulated agent workflow              |
+| `skills.test.ts`       | `@centr-ai/core`  | Skills registry, trigger matching, FTS search                                                                    |
+| `mcp.test.ts`          | `@centr-ai/mcp`   | MCP tool execution in-process (`project_status`, `project_context`, `learning_record`, etc.)                     |
+| `stdio.test.ts`        | `@centr-ai/mcp`   | True child-process stdio JSON-RPC protocol validation                                                            |
+| `cli.test.ts`          | `@centr-ai/cli`   | CLI commands (`init`, `sync`, `status`, `search`, `context`, `symbol`, `learn`, `skills`, `doctor`, `benchmark`) |
+| `brain.test.ts`        | `@centr-ai/brain` | Brain provider interface, null provider, deterministic classifier/ranker                                         |
+| `v2.test.ts`           | `@centr-ai/brain` | Hardware detection, hallucination guards, cache TTL/LRU, metrics, Ollama client, 21-step lifecycle test          |
+| `ab-benchmark.test.ts` | `@centr-ai/brain` | Agent A/B comparative benchmark: V1 deterministic context vs V2 hybrid context                                   |
 
 ---
 

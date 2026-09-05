@@ -70,10 +70,10 @@
 
 ```bash
 # Global installation
-npm install -g @centr/cli
+npm install -g @centr-ai/cli
 
 # Or run directly via npx
-npx @centr/cli init
+npx @centr-ai/cli init
 ```
 
 ### 2. Initialize in Your Repository
@@ -132,12 +132,12 @@ centr symbol "AuthService"
 
 ## 🔌 Model Context Protocol (MCP) Integration
 
-CentR provides a native stdio MCP server (`@centr/mcp`) supported by **Claude Code**, **OpenAI Codex**, and **Cursor**.
+CentR provides a native stdio MCP server (`@centr-ai/mcp`) supported by **Claude Code**, **OpenAI Codex**, and **Cursor**.
 
 ### Claude Code Setup
 
 ```bash
-claude mcp add centr -- npx @centr/mcp
+claude mcp add centr -- npx @centr-ai/mcp
 ```
 
 Or add to your `~/.claude/claude.json`:
@@ -147,7 +147,7 @@ Or add to your `~/.claude/claude.json`:
   "mcpServers": {
     "centr": {
       "command": "npx",
-      "args": ["-y", "@centr/mcp"]
+      "args": ["-y", "@centr-ai/mcp"]
     }
   }
 }
@@ -160,7 +160,7 @@ Or add to your `~/.claude/claude.json`:
   "mcpServers": {
     "centr": {
       "command": "npx",
-      "args": ["-y", "@centr/mcp"]
+      "args": ["-y", "@centr-ai/mcp"]
     }
   }
 }
@@ -196,7 +196,7 @@ CentR maintains a strict boundary between repository-specific facts and reusable
 
 ## 📊 Real-Agent Benchmark Results
 
-CentR includes an objective, reproducible **Agent A/B Benchmark Harness** (`@centr/benchmark-ab`) evaluating 27 real-world coding tasks.
+CentR includes an objective, reproducible **Agent A/B Benchmark Harness** (`@centr-ai/benchmark-ab`) evaluating 27 real-world coding tasks.
 
 > [!NOTE]
 > **Preliminary Interactive Benchmark Disclosure**:

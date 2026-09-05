@@ -4,8 +4,8 @@ import {
   defaultBrainMetrics,
   recommendProfile,
   ResourceProfile,
-} from '@centr/brain';
-import { loadConfig, saveConfig } from '@centr/core';
+} from '@centr-ai/brain';
+import { loadConfig, saveConfig } from '@centr-ai/core';
 import chalk from 'chalk';
 import type { Command } from 'commander';
 import ora from 'ora';

@@ -1,4 +1,4 @@
-import { LearningService } from '@centr/core';
+import { LearningService } from '@centr-ai/core';
 import chalk from 'chalk';
 import { Command } from 'commander';
 import * as readline from 'node:readline';

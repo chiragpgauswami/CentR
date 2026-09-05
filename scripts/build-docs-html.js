@@ -185,7 +185,7 @@ const gettingStarted = `
 <h2>1. Global Installation</h2>
 <div class="code-block">
   <div class="code-header"><span>bash</span><button class="install-copy-btn copy-btn">Copy</button></div>
-  <div class="code-content"><pre><code>npm install -g @centr/cli</code></pre></div>
+  <div class="code-content"><pre><code>npm install -g @centr-ai/cli</code></pre></div>
 </div>
 
 <h2>2. Initialize Your Repository</h2>
@@ -345,13 +345,13 @@ centr brain enable</code></pre></div>
 // 6. MCP
 const mcp = `
 <h1>Model Context Protocol (MCP) Integration</h1>
-<p>CentR provides a production-grade stdio Model Context Protocol (MCP) server via <code>@centr/mcp</code>, allowing Claude Code, Cursor, and OpenAI Codex to query project intelligence seamlessly.</p>
+<p>CentR provides a production-grade stdio Model Context Protocol (MCP) server via <code>@centr-ai/mcp</code>, allowing Claude Code, Cursor, and OpenAI Codex to query project intelligence seamlessly.</p>
 
 <h2>Claude Code Configuration</h2>
 <p>Run the following command to register CentR with Claude Code:</p>
 <div class="code-block">
   <div class="code-header"><span>bash</span><button class="install-copy-btn copy-btn">Copy</button></div>
-  <div class="code-content"><pre><code>claude mcp add centr -- npx @centr/mcp</code></pre></div>
+  <div class="code-content"><pre><code>claude mcp add centr -- npx @centr-ai/mcp</code></pre></div>
 </div>
 
 <h2>Cursor Configuration (<code>.cursor/mcp.json</code>)</h2>
@@ -361,7 +361,7 @@ const mcp = `
   "mcpServers": {
     "centr": {
       "command": "npx",
-      "args": ["-y", "@centr/mcp"]
+      "args": ["-y", "@centr-ai/mcp"]
     }
   }
 }</code></pre></div>

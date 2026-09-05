@@ -11,7 +11,7 @@
 
 CentR is a local-first **Project Intelligence + Learning Middleware for AI Coding Agents** designed to provide task-relevant project context, persistent project memory, and cross-session learning to coding agents (such as Claude Code, Codex CLI, and Cursor) via MCP and CLI.
 
-A rigorous, line-by-line production audit was conducted across all monorepo packages (`@centr/core`, `@centr/cli`, `@centr/mcp`, and `@centr/brain`). The audit revealed several critical vulnerabilities and design flaws in the initial implementation:
+A rigorous, line-by-line production audit was conducted across all monorepo packages (`@centr-ai/core`, `@centr-ai/cli`, `@centr-ai/mcp`, and `@centr-ai/brain`). The audit revealed several critical vulnerabilities and design flaws in the initial implementation:
 
 1. **Parser Fragility**: Regex-based parsing misclassified symbols in comments and string literals, dropped multiline imports, and omitted symbol references.
 2. **Path Traversal Vulnerability**: Sibling directory path traversal was possible via flawed prefix matching in `sanitizePath`.
@@ -101,10 +101,10 @@ All quality gates pass without warnings:
 ```bash
 # 1. Typecheck across monorepo
 npm run typecheck
-✓ @centr/core: tsc --noEmit
-✓ @centr/cli: tsc --noEmit
-✓ @centr/mcp: tsc --noEmit
-✓ @centr/brain: tsc --noEmit
+✓ @centr-ai/core: tsc --noEmit
+✓ @centr-ai/cli: tsc --noEmit
+✓ @centr-ai/mcp: tsc --noEmit
+✓ @centr-ai/brain: tsc --noEmit
 
 # 2. Lint across monorepo
 npm run lint

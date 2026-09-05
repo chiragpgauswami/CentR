@@ -1,11 +1,11 @@
-import { BrainManager, createBrainProvider, type ResourceProfile } from '@centr/brain';
+import { BrainManager, createBrainProvider, type ResourceProfile } from '@centr-ai/brain';
 import {
   CentrDatabase,
   ContextEngine,
   initializeProject,
   loadConfig,
   saveConfig,
-} from '@centr/core';
+} from '@centr-ai/core';
 import fs from 'node:fs';
 import path from 'node:path';
 import type { ScenarioContext, ScenarioPreparer } from './types.js';

@@ -1,4 +1,4 @@
-import type { ContextResult } from '@centr/core';
+import type { ContextResult } from '@centr-ai/core';
 
 export type ScenarioType = 'baseline' | 'centr-v1' | 'centr-v2';
 

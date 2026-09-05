@@ -1,6 +1,6 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
-import { SearchEngine } from '@centr/core';
+import { SearchEngine } from '@centr-ai/core';
 import { getProjectRoot, getDatabase, getProjectId, handleError } from '../utils.js';
 
 export default function(program: Command) {
