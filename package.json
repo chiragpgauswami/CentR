@@ -1,6 +1,6 @@
 {
   "name": "centr",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Local-first Project Intelligence + Learning Middleware for AI Coding Agents",
   "private": true,
   "type": "module",

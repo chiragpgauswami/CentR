@@ -1,6 +1,6 @@
 {
   "name": "@centr-ai/brain",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Optional local Small Language Model (SLM) intelligence layer for CentR",
   "type": "module",
   "main": "./dist/index.js",
@@ -50,6 +50,6 @@
     "CHANGELOG.md"
   ],
   "dependencies": {
-    "@centr-ai/core": "0.1.2"
+    "@centr-ai/core": "0.1.3"
   }
 }

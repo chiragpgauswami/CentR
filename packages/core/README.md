@@ -1,275 +1,290 @@
+# @centr-ai/core
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/chiragpgauswami/CentR/main/assets/logo.svg" width="480" alt="CentR Logo" />
 </p>
 
 <p align="center">
-  <strong>Local-first Project Intelligence + Learning Middleware for AI Coding Agents</strong>
+  <strong>Local-first Project Intelligence & Memory Middleware for AI Coding Agents</strong>
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" /></a>
+  <a href="https://www.npmjs.com/package/@centr-ai/core"><img src="https://img.shields.io/npm/v/@centr-ai/core.svg" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@centr-ai/core"><img src="https://img.shields.io/npm/dm/@centr-ai/core.svg" alt="npm downloads" /></a>
+  <a href="https://github.com/chiragpgauswami/CentR/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License" /></a>
   <img src="https://img.shields.io/badge/typescript-strict-3178C6.svg" alt="TypeScript Strict" />
+  <img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg" alt="Node >= 20" />
   <img src="https://img.shields.io/badge/tests-298%20passed-10B981.svg" alt="Tests 298 passed" />
   <img src="https://img.shields.io/badge/telemetry-zero%20cloud-06B6D4.svg" alt="Zero Cloud Telemetry" />
-  <img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg" alt="Node >= 20" />
 </p>
-
----
-
-## ⚡ The 2-Minute Executive Summary
-
-| Question                                       | The CentR Answer                                                                                                                                                                                                                                                                                             |
-| :--------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **What is CentR?**                             | A local-first developer middleware that indexes code, maintains institutional memory, and supplies the smallest useful context to AI coding agents.                                                                                                                                                          |
-| **Why does it exist?**                         | Coding agents (Claude Code, Cursor, Codex, Antigravity) waste 2–4 turns and thousands of tokens blindly running `find_by_name` and `grep_search` to find relevant files. CentR stops this cycle.                                                                                                             |
-| **How is it different from RAG / Vector DBs?** | Vector DBs dump unvalidated chunk similarity into context. CentR is **deterministic AST symbol indexing + SQLite FTS5 BM25 + strict token budgets + evidence-scored memory**.                                                                                                                                |
-| **Does it replace my coding agent?**           | **No.** CentR is not an agent. It sits beside your agent via Model Context Protocol (MCP) or CLI to give it instant repository intelligence.                                                                                                                                                                 |
-| **Does it require cloud AI or paid APIs?**     | **No.** Zero cloud dependencies. Runs 100% locally with SQLite 3. An optional local Small Language Model (SLM) Brain can be attached via Ollama, but is never required.                                                                                                                                      |
-| **What does the optional Brain do?**           | Provides semantic re-ranking, task classification, and failure diagnosis. Core is always the authority; the Brain is an advisor.                                                                                                                                                                             |
-| **What privacy guarantees exist?**             | **Zero telemetry.** Your code, tokens, memories, and index never leave your machine. Secrets are automatically redacted before indexing.                                                                                                                                                                     |
-| **What evidence exists that it helps?**        | Preliminary interactive benchmark observations showed fewer exploratory tool calls (-2 calls per task on turn 1 in tested scenarios). Agent token telemetry was not available, so these results should not be interpreted as a controlled measurement of token savings or universal performance improvement. |
-
----
-
-## 🏛️ Core Architecture
-
-> **"Store everything useful. Send almost nothing."**
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/chiragpgauswami/CentR/main/assets/architecture.svg" width="900" alt="CentR Architecture" />
-</p>
-
-### The Two-Tier Architecture:
-
-1. **Deterministic Core (The Authority)**:
-   - **AST Indexer**: Parses TypeScript/JavaScript into symbols (functions, classes, interfaces, types) in ~20ms.
-   - **SQLite 3 + FTS5**: Ranked BM25 full-text search across symbols, paths, and memories in < 2ms.
-   - **Token Budgeter**: Greedy relevance sorting that strictly respects context limits (e.g. 4,000 tokens).
-   - **Project Memory**: Project-isolated institutional memory (`.centr/centr.db`).
-   - **Global Learning**: Evidence-based cross-project knowledge (`~/.centr/learning.db`).
-2. **Optional Local Brain (The Advisor)**:
-   - Powered by local Small Language Models (0.5B–7B parameters via Ollama or custom local providers).
-   - Semantic re-ranking, failure analysis, and memory extraction.
-   - **Hallucination Guard**: The Brain cannot invent files or edit source code; all candidates are bounded by Core retrieval.
-   - **Deterministic Fallback**: Automatically falls back to Core heuristics if the local SLM is absent, slow, or times out.
-
----
-
-## 🚀 Quick Start
-
-### 1. Installation
-
-```bash
-# Global installation
-npm install -g @centr-ai/cli
-
-# Or run directly via npx
-npx @centr-ai/cli init
-```
-
-### 2. Initialize in Your Repository
-
-```bash
-cd my-project
-
-# Initialize CentR index (takes ~20-50ms)
-centr init
-
-# Check intelligence status
-centr status
-```
-
-### 3. Generate Context for an Agent
-
-```bash
-# Get the smallest useful context for a task
-centr context "Add rate limiting to authentication routes"
-
-# Search code symbols and files
-centr search "verifyToken"
-
-# Lookup exact symbol details and references
-centr symbol "AuthService"
-```
-
----
-
-## 🔄 Lifecycle Workflow
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/chiragpgauswami/CentR/main/assets/centr-overview.svg" width="900" alt="CentR Lifecycle Overview" />
+  <a href="https://chiragpgauswami.github.io/CentR/"><strong>Documentation Website</strong></a> •
+  <a href="https://github.com/chiragpgauswami/CentR"><strong>GitHub Repository</strong></a> •
+  <a href="https://chiragpgauswami.github.io/CentR/docs/architecture.html"><strong>Architecture Guide</strong></a> •
+  <a href="https://chiragpgauswami.github.io/CentR/docs/mcp.html"><strong>MCP Setup</strong></a>
 </p>
 
 ---
 
-## 🛠️ CLI Command Reference
+## ⚡ What is `@centr-ai/core`?
 
-| Command                | Description                                                       | Example                                           |
-| :--------------------- | :---------------------------------------------------------------- | :------------------------------------------------ |
-| `centr init`           | Initialize `.centr/` and build the primary AST index              | `centr init`                                      |
-| `centr sync`           | Incrementally re-index changed files via SHA-256 hashes           | `centr sync`                                      |
-| `centr status`         | Show project health, file counts, and index size                  | `centr status`                                    |
-| `centr search <query>` | Multi-source BM25 ranked search across symbols & files            | `centr search "jwt auth"`                         |
-| `centr context <task>` | Generate token-budgeted context for an agent task                 | `centr context "Fix login bug" --max-tokens 2000` |
-| `centr symbol <name>`  | Deep lookup of symbol definition, references & imports            | `centr symbol "UserController"`                   |
-| `centr memory <cmd>`   | Manage project-isolated institutional memories                    | `centr memory add --title "Bcrypt rounds"`        |
-| `centr learn <cmd>`    | Manage cross-project evidence-backed learnings                    | `centr learn list --validated`                    |
-| `centr skills <cmd>`   | Register and search reusable development skills                   | `centr skills list`                               |
-| `centr doctor`         | Comprehensive health, SQLite integrity & environment check        | `centr doctor`                                    |
-| `centr benchmark`      | Run local indexing, search, and context latency SLA checks        | `centr benchmark`                                 |
-| `centr brain <cmd>`    | Manage optional local SLM Brain (`status`, `recommend`, `enable`) | `centr brain recommend`                           |
+`@centr-ai/core` is the deterministic foundation and programmatic SDK of **CentR**. It provides **local-first project intelligence, incremental AST code indexing, SQLite 3 + FTS5 full-text search, token-budgeted context assembly, and persistent institutional memory** for AI coding agents and developer tooling.
+
+It transforms a raw repository into an indexed, queryable intelligence layer that enables agents to target the exact files, symbols, and constraints they need on their first turn—without blind file tree traversal or unbounded grep scans.
+
+> **Core Slogan**: _"Store everything useful. Send almost nothing."_
 
 ---
 
-## 🔌 Model Context Protocol (MCP) Integration
+## 🎯 Why Project Intelligence for AI Coding Agents?
 
-CentR provides a native stdio MCP server (`@centr-ai/mcp`) supported by **Claude Code**, **OpenAI Codex**, and **Cursor**.
+### The Problem: Context Waste & Repeated Exploration
 
-### Claude Code Setup
+When AI coding agents (Claude Code, Cursor, Codex, Antigravity, or custom agent loops) interact with codebases, they routinely burn **2 to 4 exploratory tool calls** and thousands of context tokens on every user prompt:
+
+- Grepping for function declarations across hundreds of source files.
+- Searching directory trees to locate route handlers, types, or configuration files.
+- Re-discovering the same architectural conventions, decisions, and constraints on every session.
+- Stuffing raw file dumps into LLM prompt windows, diluting model attention and risking token exhaustion.
+
+### The Solution: Deterministic Repository Intelligence
+
+`@centr-ai/core` solves this locally in under 2 milliseconds:
+
+1. **Indexes Once**: Performs incremental AST parsing of TypeScript, JavaScript, JSON, and Markdown into structured symbols (functions, classes, interfaces, types), imports, exports, and dependencies.
+2. **Embeds in SQLite FTS5**: Maintains local, WAL-mode SQLite databases with BM25 ranked full-text indexing.
+3. **Packs Context to Budget**: Analyzes incoming agent tasks, retrieves top candidate symbols and memories, and greedily selects content to strictly fit a specified token budget (e.g. 4,000 tokens).
+4. **Remembers Institutional Knowledge**: Stores project-specific architectural decisions, security rules, and warnings so agents do not repeat past mistakes.
+
+---
+
+## 📦 Key Capabilities
+
+- ⚡ **Incremental AST Code Indexing**: Parses symbols, imports, exports, and routes with SHA-256 content change detection. Typical incremental sync takes **~20ms**.
+- 🔍 **SQLite 3 + FTS5 BM25 Code Search**: Multi-source ranked retrieval across symbol identifiers, qualified paths, files, and project memory.
+- 🎯 **Token-Budgeted Context Engineering**: Deterministic character-to-token budgeting (`fitToBudget`) that selects highest-priority items and evicts low-relevance content to strictly respect context window limits.
+- 🧠 **Project Memory & Global Learning**: Local SQLite storage for project decisions, constraints, and warnings (`ProjectMemoryService`), plus cross-project evidence-backed knowledge (`LearningService`).
+- 🛡️ **Zero-Cloud & Privacy First**: Operates 100% locally with zero cloud telemetry. Built-in security scanners automatically redact `.env`, certificates, tokens, and private keys.
+- 🧩 **ESM & Strict TypeScript**: Native ECMAScript Modules (`NodeNext`) with full TypeScript type definitions and strict mode compliance.
+
+---
+
+## 💻 Installation
 
 ```bash
-claude mcp add centr -- npx @centr-ai/mcp
+npm install @centr-ai/core
 ```
 
-Or add to your `~/.claude/claude.json`:
+### System Requirements:
 
-```json
-{
-  "mcpServers": {
-    "centr": {
-      "command": "npx",
-      "args": ["-y", "@centr-ai/mcp"]
-    }
-  }
+- **Node.js**: `>= 20.0.0`
+- **Operating System**: macOS, Linux, Windows (via native Node.js and precompiled `better-sqlite3` bindings)
+- **Module System**: ESM (`import { ... } from '@centr-ai/core'`)
+
+---
+
+## 🚀 Quick Start & Code Examples
+
+### 1. Initialize Database & Index a Codebase
+
+```typescript
+import { CentrDatabase, initializeProject } from '@centr-ai/core';
+
+// Open or create the local SQLite database
+const db = new CentrDatabase('./.centr/centr.db');
+db.initialize();
+
+// Index the current project (extracts symbols, imports, exports, dependencies)
+const result = await initializeProject(process.cwd(), db);
+
+console.log(`Project: ${result.project.name} (${result.project.language})`);
+console.log(
+  `Indexed ${result.filesIndexed} files and ${result.symbolsIndexed} symbols in ${result.timeTaken}ms`,
+);
+```
+
+---
+
+### 2. Generate Token-Budgeted Context for an AI Agent
+
+Give your coding agent the exact symbols and context it needs for a specific prompt within a strict token budget:
+
+```typescript
+import { CentrDatabase, ContextEngine } from '@centr-ai/core';
+
+const db = new CentrDatabase('./.centr/centr.db');
+db.initialize();
+
+const contextEngine = new ContextEngine(db);
+
+// Generate budgeted context for an agent task
+const context = contextEngine.generate({
+  projectId: 1,
+  task: 'Implement JWT authentication middleware and token refresh route',
+  maxTokens: 4000,
+  includeMemory: true,
+  includeLearning: true,
+});
+
+console.log(`Task: "${context.task}"`);
+console.log(`Budget: ${context.budget} tokens | Estimated: ${context.estimatedTokens} tokens`);
+console.log(`Selected: ${context.itemsSelected} items | Evicted: ${context.itemsRemoved} items`);
+
+// Inject context.items directly into your LLM system prompt
+for (const item of context.items) {
+  console.log(
+    `[${item.type}] ${item.name} (relevance: ${item.relevance.toFixed(2)}, tokens: ${item.tokens})`,
+  );
 }
 ```
 
-### Cursor Setup (`.cursor/mcp.json`)
+---
 
-```json
-{
-  "mcpServers": {
-    "centr": {
-      "command": "npx",
-      "args": ["-y", "@centr-ai/mcp"]
-    }
-  }
+### 3. Fast Full-Text & Symbol Search with SQLite FTS5
+
+```typescript
+import { CentrDatabase, SearchEngine } from '@centr-ai/core';
+
+const db = new CentrDatabase('./.centr/centr.db');
+db.initialize();
+
+const search = new SearchEngine(db);
+
+// 1. Multi-source ranked BM25 search
+const results = search.search({
+  projectId: 1,
+  query: 'verifyToken',
+  limit: 5,
+});
+
+for (const res of results) {
+  console.log(
+    `${res.type}: ${res.file}${res.line ? `:${res.line}` : ''} (score: ${res.relevance.toFixed(2)})`,
+  );
+}
+
+// 2. Deep symbol inspection (definition, file location, references, and related imports)
+const symbolDetail = search.lookupSymbol(1, 'AuthService');
+if (symbolDetail) {
+  console.log(`Symbol: ${symbolDetail.symbol.name} (${symbolDetail.symbol.kind})`);
+  console.log(`File: ${symbolDetail.file.relativePath}:${symbolDetail.symbol.line}`);
+  console.log(`Incoming References: ${symbolDetail.references.length}`);
 }
 ```
 
-### Exposed MCP Tools:
-
-- `get_context`: Returns token-budgeted project intelligence for a task.
-- `search_code`: Ranked full-text search over indexed repository symbols.
-- `lookup_symbol`: Complete definition, references, and related imports.
-- `get_memory` & `record_memory`: Project-isolated memory retrieval and creation.
-- `get_learning`: Cross-project validated engineering lessons.
-
 ---
 
-## 🧠 Project Memory vs. Global Learning
+### 4. Manage Institutional Project Memory
 
-CentR maintains a strict boundary between repository-specific facts and reusable engineering wisdom:
+Store architectural patterns, conventions, and warnings that agents should respect:
 
-### Project Memory (`docs/MEMORY.md`)
+```typescript
+import { CentrDatabase, ProjectMemoryService } from '@centr-ai/core';
 
-- **Scope**: Isolated to the current repository (`.centr/centr.db`).
-- **Answers**: _"What happened in this specific project?"_
-- **Categories**: Architecture patterns, decisions, constraints, discoveries, API contracts, dependencies, workflows, warnings.
+const db = new CentrDatabase('./.centr/centr.db');
+db.initialize();
 
-### Global Learning (`docs/LEARNING.md`)
+const memory = new ProjectMemoryService(db);
 
-- **Scope**: Reusable across all repositories on the machine (`~/.centr/learning.db`).
-- **Answers**: _"What should the agent do differently next time?"_
-- **Lifecycle**: `candidate` (0.5 confidence) $\rightarrow$ `evidence` (success/failure logs) $\rightarrow$ `validated` ($\ge 0.7$ confidence with $\ge 3$ validations) or `rejected`.
+// Store an architectural constraint
+const entry = memory.create({
+  projectId: 1,
+  title: 'Password Hashing Standard',
+  content:
+    'Always use bcrypt with minimum 12 salt rounds for user password hashes. Never use SHA-256 for passwords.',
+  category: 'constraint',
+  source: 'security-audit',
+  confidence: 1.0,
+  tags: ['auth', 'security', 'passwords'],
+});
 
----
+console.log(`Created memory #${entry.id}: ${entry.title}`);
 
-## 📊 Real-Agent Benchmark Results
-
-CentR includes an objective, reproducible **Agent A/B Benchmark Harness** (`@centr-ai/benchmark-ab`) evaluating 27 real-world coding tasks.
-
-> [!NOTE]
-> **Preliminary Interactive Benchmark Disclosure**:
-> The results below represent an interactive benchmark evaluating **7 software engineering tasks across 3 scenarios (21 total runs)** using **Google Antigravity (Gemini 2.5 Pro)** on clean, isolated workspaces.
->
-> Agent-level telemetry was not exposed through the Antigravity tool boundary, so token usage and automated tool-call telemetry are **not claimed**. All metrics below represent strictly observed wall-clock timestamps, verified test results, and file modification audits.
-
-### Summary Results (7 Tasks, 21 Verified Runs)
-
-| Scenario                  | Agent       | Mode   | Avg Duration | Observed Tool Calls | Test Pass Rate | Git Patch Size |
-| :------------------------ | :---------- | :----- | :----------: | :-----------------: | :------------: | :------------: |
-| **Scenario A (Baseline)** | Antigravity | manual |  167,143 ms  |       **6.0**       | **100%** (7/7) | +23 lines avg  |
-| **Scenario B (CentR V1)** | Antigravity | manual |  122,263 ms  |  **4.0** (-33.3%)   | **100%** (7/7) | +23 lines avg  |
-| **Scenario C (CentR V2)** | Antigravity | manual |  122,263 ms  |  **4.0** (-33.3%)   | **100%** (7/7) | +23 lines avg  |
-
-### Key Empirical Findings:
-
-1. **Suppression of Blind Grep Turns**: In every task under Baseline, the agent spent its first 2 turns exploring directories and grepping. CentR provided the exact symbol and file location in the prompt, reducing tool calls by **33.3%** on turn 1.
-2. **Sub-2ms Core Latency**: CentR V1 retrieval added only **1.2 ms** to overall task execution.
-3. **Zero Cloud Tokens**: All runs consumed **0 cloud tokens** and incurred **$0.00** API costs.
-
-Full methodology and reproduction steps are documented in [docs/AGENT-BENCHMARKING.md](docs/AGENT-BENCHMARKING.md) and [benchmarks/agent-ab/reports/latest-report.md](benchmarks/agent-ab/reports/latest-report.md).
-
----
-
-## 🔒 Security & Privacy
-
-CentR is built with a zero-trust approach toward telemetry and sensitive files:
-
-- **Zero Cloud Dependency**: Never connects to remote cloud endpoints for core features.
-- **Strict Secret Redaction**: Built-in regex filters (`DEFAULT_SECRET_PATTERNS`) ignore `.env`, `.pem`, `.key`, AWS keys, tokens, and credentials during indexing.
-- **Path Traversal Defense**: All file lookups are strictly verified within the project root via `sanitizePath`.
-- **Parameterized SQL**: All database operations use SQLite parameterized placeholders (`?`) to prevent SQL injection.
-- **Sandboxed Brain**: The optional local Brain cannot execute shell commands, edit files directly, or persist ungrounded candidates.
-
-See [docs/SECURITY.md](docs/SECURITY.md) for our full security specification.
-
----
-
-## 💻 Hardware Requirements
-
-CentR is engineered for low-end hardware:
-
-| Profile                 | Target Hardware                         | Recommended SLM          | RAM Used |
-| :---------------------- | :-------------------------------------- | :----------------------- | :------- |
-| **Core Only** (Default) | Any machine running Node.js >= 20       | None (Pure AST + SQLite) | < 30 MB  |
-| **Minimal**             | 4-core CPU, 8 GB RAM                    | `qwen2.5:1.5b` (Q4_K_M)  | ~1.2 GB  |
-| **Balanced**            | 8-core CPU, 16 GB RAM (Apple M-series)  | `llama3.2:3b`            | ~2.5 GB  |
-| **Quality**             | Dedicated GPU (VRAM >= 8 GB), 32 GB RAM | `qwen2.5:7b`             | ~5.2 GB  |
-
----
-
-## 📚 Detailed Documentation
-
-- [Architecture Deep Dive](docs/ARCHITECTURE.md)
-- [Local Brain Guide](docs/BRAIN.md)
-- [Project Memory Specification](docs/MEMORY.md)
-- [Global Learning Specification](docs/LEARNING.md)
-- [Model Context Protocol (MCP)](docs/MCP.md)
-- [Security Policy](docs/SECURITY.md)
-- [Testing & Quality Assurance](docs/TESTING.md)
-- [Agent Benchmarking Methodology](docs/AGENT-BENCHMARKING.md)
-- [Changelog](CHANGELOG.md)
-- [Contributing Guide](CONTRIBUTING.md)
-
----
-
-## 🤝 Contributing & Community
-
-Contributions are welcome! Please review [CONTRIBUTING.md](CONTRIBUTING.md) and our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before submitting pull requests.
-
-```bash
-# Setup for development
-git clone https://github.com/chiragpgauswami/CentR.git
-cd CentR
-npm install
-npm run build
-npm test
+// Query memories with SQLite FTS5
+const hits = memory.search(1, 'bcrypt salt rounds');
+console.log(`Found ${hits.length} relevant memories`);
 ```
+
+---
+
+### 5. Incremental Synchronization
+
+When files are modified, re-index only the changed files in milliseconds:
+
+```typescript
+import { CentrDatabase, syncProject } from '@centr-ai/core';
+
+const db = new CentrDatabase('./.centr/centr.db');
+db.initialize();
+
+// Computes SHA-256 hashes and re-indexes only modified/new files
+const syncResult = await syncProject(1, process.cwd(), db);
+
+console.log(`Sync complete in ${syncResult.timeTaken}ms:`);
+console.log(
+  `Added: ${syncResult.filesAdded} | Changed: ${syncResult.filesChanged} | Deleted: ${syncResult.filesDeleted}`,
+);
+```
+
+---
+
+## 🏛️ Public API Overview
+
+| Export                 | Type     | Description                                                                                       |
+| :--------------------- | :------- | :------------------------------------------------------------------------------------------------ |
+| `CentrDatabase`        | Class    | SQLite 3 database manager with WAL mode, foreign keys, and schema migrations.                     |
+| `initializeProject`    | Function | Scans codebase, parses AST symbols, redacts secrets, and builds initial index.                    |
+| `syncProject`          | Function | Incremental re-indexer using SHA-256 content hashes (~20ms).                                      |
+| `ContextEngine`        | Class    | Assembles and token-budgets task-relevant context items from code and memory.                     |
+| `SearchEngine`         | Class    | Multi-source BM25 full-text search across symbols, paths, and memories.                           |
+| `ProjectMemoryService` | Class    | CRUD and FTS5 search for project-scoped institutional memories and constraints.                   |
+| `LearningService`      | Class    | Evidence-based global learning registry with confidence scoring and status promotion.             |
+| `SkillsService`        | Class    | Registry of reusable developer routines and skills with trigger matching.                         |
+| `estimateTokens`       | Function | Deterministic character-to-token approximation (1 token ≈ 4 characters).                          |
+| `fitToBudget`          | Function | Greedy relevance-ordered token budgeting algorithm.                                               |
+| `parseTypeScript`      | Function | Regex/AST parser extracting functions, classes, methods, interfaces, types, imports, and exports. |
+| `sanitizePath`         | Function | Path traversal defense ensuring all file operations stay within the project root.                 |
+| `isSecretFile`         | Function | Automated scanner detecting `.env`, private keys, certificates, and credentials.                  |
+
+---
+
+## 🌐 The CentR Ecosystem
+
+`@centr-ai/core` is part of the CentR monorepo suite designed for AI coding agents and developer workflows:
+
+| Package                                                                              | Purpose                            | When to Use                                                                                             |
+| :----------------------------------------------------------------------------------- | :--------------------------------- | :------------------------------------------------------------------------------------------------------ |
+| **`@centr-ai/core`**                                                                 | **Core Intelligence Engine & SDK** | Building custom agents, context pipelines, or embedding project intelligence into Node.js apps.         |
+| **[`@centr-ai/cli`](https://www.npmjs.com/package/@centr-ai/cli)**                   | **Command Line Interface**         | Human developers using `centr init`, `centr context`, `centr search`, and `centr doctor` in terminal.   |
+| **[`@centr-ai/mcp`](https://www.npmjs.com/package/@centr-ai/mcp)**                   | **Model Context Protocol Server**  | Connecting CentR directly to **Claude Code**, **Cursor**, and **Codex** via native stdio MCP.           |
+| **[`@centr-ai/brain`](https://www.npmjs.com/package/@centr-ai/brain)**               | **Optional Local SLM Advisor**     | Semantic re-ranking and automated learning extraction using local Ollama models with zero cloud tokens. |
+| **[`@centr-ai/benchmark-ab`](https://www.npmjs.com/package/@centr-ai/benchmark-ab)** | **Agent A/B Benchmark Harness**    | Measuring coding agent tool-call reduction and task latency under controlled scenarios.                 |
+
+---
+
+## 🔒 Security & Secret Redaction
+
+CentR enforces a strict local-first security boundary:
+
+- **Zero Remote Calls**: Never sends code, tokens, or queries to external cloud servers.
+- **Built-in Secret Exclusion**: Excludes `.env`, `.pem`, `.key`, `id_rsa`, `token.json`, and credentials before AST parsing.
+- **Path Traversal Protection**: All paths are resolved and validated within `rootPath` via `sanitizePath`.
+- **Parameterized SQL**: All SQLite queries use parameterized placeholders (`?`) to prevent SQL injection.
+
+---
+
+## 📚 Documentation & Resources
+
+- **Website**: [https://chiragpgauswami.github.io/CentR/](https://chiragpgauswami.github.io/CentR/)
+- **Documentation**: [https://chiragpgauswami.github.io/CentR/docs/getting-started.html](https://chiragpgauswami.github.io/CentR/docs/getting-started.html)
+- **Architecture Deep Dive**: [https://chiragpgauswami.github.io/CentR/docs/architecture.html](https://chiragpgauswami.github.io/CentR/docs/architecture.html)
+- **MCP Integration Guide**: [https://chiragpgauswami.github.io/CentR/docs/mcp.html](https://chiragpgauswami.github.io/CentR/docs/mcp.html)
+- **GitHub Repository**: [https://github.com/chiragpgauswami/CentR](https://github.com/chiragpgauswami/CentR)
+- **Issues & Support**: [https://github.com/chiragpgauswami/CentR/issues](https://github.com/chiragpgauswami/CentR/issues)
 
 ---
 
 ## 📄 License
 
-MIT © 2024–2026 CentR Contributors. See [LICENSE](LICENSE) for details.
+MIT © 2024–2026 CentR Contributors. See [LICENSE](https://github.com/chiragpgauswami/CentR/blob/main/LICENSE) for details.

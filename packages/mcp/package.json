@@ -1,6 +1,6 @@
 {
   "name": "@centr-ai/mcp",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Model Context Protocol (MCP) server for CentR project intelligence",
   "type": "module",
   "bin": {
@@ -53,8 +53,8 @@
     "CHANGELOG.md"
   ],
   "dependencies": {
-    "@centr-ai/brain": "0.1.2",
-    "@centr-ai/core": "0.1.2",
+    "@centr-ai/brain": "0.1.3",
+    "@centr-ai/core": "0.1.3",
     "@modelcontextprotocol/sdk": "^1.30.0"
   }
 }
