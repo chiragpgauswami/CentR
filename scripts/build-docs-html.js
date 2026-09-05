@@ -5,24 +5,36 @@ const DOCS_DIR = path.resolve('website/docs');
 fs.mkdirSync(DOCS_DIR, { recursive: true });
 
 const NAV_ITEMS = [
-  { group: 'Introduction', items: [
-    { title: 'Getting Started', file: 'getting-started.html' },
-    { title: 'Architecture', file: 'architecture.html' },
-  ]},
-  { group: 'Core Intelligence', items: [
-    { title: 'Project Memory', file: 'memory.html' },
-    { title: 'Global Learning', file: 'learning.html' },
-    { title: 'Optional Local Brain', file: 'brain.html' },
-  ]},
-  { group: 'Tools & Integrations', items: [
-    { title: 'Model Context Protocol (MCP)', file: 'mcp.html' },
-    { title: 'CLI Command Reference', file: 'cli.html' },
-  ]},
-  { group: 'Engineering & Standards', items: [
-    { title: 'Security & Privacy', file: 'security.html' },
-    { title: 'Benchmarks & Validation', file: 'benchmarks.html' },
-    { title: 'Contributing Guide', file: 'contributing.html' },
-  ]}
+  {
+    group: 'Introduction',
+    items: [
+      { title: 'Getting Started', file: 'getting-started.html' },
+      { title: 'Architecture', file: 'architecture.html' },
+    ],
+  },
+  {
+    group: 'Core Intelligence',
+    items: [
+      { title: 'Project Memory', file: 'memory.html' },
+      { title: 'Global Learning', file: 'learning.html' },
+      { title: 'Optional Local Brain', file: 'brain.html' },
+    ],
+  },
+  {
+    group: 'Tools & Integrations',
+    items: [
+      { title: 'Model Context Protocol (MCP)', file: 'mcp.html' },
+      { title: 'CLI Command Reference', file: 'cli.html' },
+    ],
+  },
+  {
+    group: 'Engineering & Standards',
+    items: [
+      { title: 'Security & Privacy', file: 'security.html' },
+      { title: 'Benchmarks & Validation', file: 'benchmarks.html' },
+      { title: 'Contributing Guide', file: 'contributing.html' },
+    ],
+  },
 ];
 
 function renderSidebar(activeFile) {
@@ -46,6 +58,9 @@ function renderSidebar(activeFile) {
 }
 
 function renderPage({ title, description, activeFile, content }) {
+  const canonicalUrl = `https://chiragpgauswami.github.io/CentR/docs/${activeFile}`;
+  const socialImgUrl = `https://chiragpgauswami.github.io/CentR/assets/social-preview.svg`;
+
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,8 +68,43 @@ function renderPage({ title, description, activeFile, content }) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title} — CentR Documentation</title>
   <meta name="description" content="${description}">
+  <link rel="canonical" href="${canonicalUrl}">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="CentR Contributors">
+  <meta name="theme-color" content="#080C14">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../styles/main.css">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CentR">
+  <meta property="og:title" content="${title} — CentR Documentation">
+  <meta property="og:description" content="${description}">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${socialImgUrl}">
+  <meta property="og:image:alt" content="${title} — CentR Documentation">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title} — CentR Documentation">
+  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:image" content="${socialImgUrl}">
+
+  <!-- Structured Data (Schema.org TechArticle) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "${title}",
+    "description": "${description}",
+    "url": "${canonicalUrl}",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "CentR",
+      "url": "https://chiragpgauswami.github.io/CentR/"
+    }
+  }
+  </script>
 </head>
 <body>
   <!-- Header -->
@@ -95,6 +145,13 @@ function renderPage({ title, description, activeFile, content }) {
     <div class="docs-layout">
       ${renderSidebar(activeFile)}
       <main class="docs-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+          <a href="../index.html" style="color: var(--text-muted); text-decoration: none;">CentR</a>
+          <span style="margin: 0 0.5rem;">/</span>
+          <a href="getting-started.html" style="color: var(--text-muted); text-decoration: none;">Docs</a>
+          <span style="margin: 0 0.5rem;">/</span>
+          <span style="color: var(--accent); font-weight: 500;">${title}</span>
+        </nav>
         ${content}
       </main>
     </div>
@@ -370,7 +427,7 @@ const benchmarks = `
 
 <div class="callout">
   <div class="callout-title">Preliminary Interactive Benchmark Disclosure</div>
-  <p>Evaluated using <strong>Google Antigravity (Gemini 2.5 Pro)</strong> on clean, isolated workspaces across 7 tasks and 3 scenarios (21 total runs). Agent token telemetry was unobserved at the tool boundary, so token metrics remain null (zero fabrication). Observed tool call counts and test results represent verified executions.</p>
+  <p>Preliminary interactive benchmark observations showed fewer exploratory tool calls in the tested scenarios. Agent token telemetry was not available, so these results should not be interpreted as a controlled measurement of token savings or universal performance improvement. Observed tool call counts and test results represent verified executions.</p>
 </div>
 
 <h2>Summary of Results (7 Tasks, 21 Verified Runs)</h2>
@@ -379,8 +436,8 @@ const benchmarks = `
     <thead><tr><th>Scenario</th><th>Mode</th><th>Avg Completion Time</th><th>Observed Tool Calls</th><th>Test Pass Rate</th><th>Git Patch Size</th></tr></thead>
     <tbody>
       <tr><td><strong>Baseline (No CentR)</strong></td><td>manual</td><td>167,143 ms</td><td>6.0 calls</td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
-      <tr><td><strong>CentR V1 (Core)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (-33.3%)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
-      <tr><td><strong>CentR V2 (Hybrid)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (-33.3%)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
+      <tr><td><strong>CentR V1 (Core)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (preliminary observed)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
+      <tr><td><strong>CentR V2 (Hybrid)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (preliminary observed)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
     </tbody>
   </table>
 </div>
@@ -419,16 +476,66 @@ npm test</code></pre></div>
 `;
 
 const pages = [
-  { file: 'getting-started.html', title: 'Getting Started', description: 'Quickstart installation and setup guide for CentR.', content: gettingStarted },
-  { file: 'architecture.html', title: 'Architecture Deep Dive', description: 'System architecture, AST indexer, SQLite+FTS5, and Brain boundaries.', content: architecture },
-  { file: 'memory.html', title: 'Project Memory', description: 'Project-isolated institutional memory specification and categories.', content: memory },
-  { file: 'learning.html', title: 'Global Learning', description: 'Evidence-based cross-project learning lifecycle and confidence formula.', content: learning },
-  { file: 'brain.html', title: 'Optional Local Brain', description: 'Local Small Language Model integration, hardware profiles, and fallback.', content: brain },
-  { file: 'mcp.html', title: 'Model Context Protocol', description: 'Claude Code, Cursor, and Codex integration with CentR MCP server.', content: mcp },
-  { file: 'cli.html', title: 'CLI Command Reference', description: 'Searchable reference of all 12 CentR CLI commands.', content: cli },
-  { file: 'security.html', title: 'Security & Privacy', description: 'Zero telemetry policy, secret scanning, and path traversal defense.', content: security },
-  { file: 'benchmarks.html', title: 'Benchmarks & Validation', description: 'Real-agent A/B benchmark findings, disclosures, and reproduction guide.', content: benchmarks },
-  { file: 'contributing.html', title: 'Contributing Guide', description: 'Development setup, quality gates, and code standards for CentR.', content: contributing },
+  {
+    file: 'getting-started.html',
+    title: 'Getting Started',
+    description: 'Quickstart installation and setup guide for CentR.',
+    content: gettingStarted,
+  },
+  {
+    file: 'architecture.html',
+    title: 'Architecture Deep Dive',
+    description: 'System architecture, AST indexer, SQLite+FTS5, and Brain boundaries.',
+    content: architecture,
+  },
+  {
+    file: 'memory.html',
+    title: 'Project Memory',
+    description: 'Project-isolated institutional memory specification and categories.',
+    content: memory,
+  },
+  {
+    file: 'learning.html',
+    title: 'Global Learning',
+    description: 'Evidence-based cross-project learning lifecycle and confidence formula.',
+    content: learning,
+  },
+  {
+    file: 'brain.html',
+    title: 'Optional Local Brain',
+    description: 'Local Small Language Model integration, hardware profiles, and fallback.',
+    content: brain,
+  },
+  {
+    file: 'mcp.html',
+    title: 'Model Context Protocol',
+    description: 'Claude Code, Cursor, and Codex integration with CentR MCP server.',
+    content: mcp,
+  },
+  {
+    file: 'cli.html',
+    title: 'CLI Command Reference',
+    description: 'Searchable reference of all 12 CentR CLI commands.',
+    content: cli,
+  },
+  {
+    file: 'security.html',
+    title: 'Security & Privacy',
+    description: 'Zero telemetry policy, secret scanning, and path traversal defense.',
+    content: security,
+  },
+  {
+    file: 'benchmarks.html',
+    title: 'Benchmarks & Validation',
+    description: 'Real-agent A/B benchmark findings, disclosures, and reproduction guide.',
+    content: benchmarks,
+  },
+  {
+    file: 'contributing.html',
+    title: 'Contributing Guide',
+    description: 'Development setup, quality gates, and code standards for CentR.',
+    content: contributing,
+  },
 ];
 
 for (const p of pages) {
@@ -436,7 +543,7 @@ for (const p of pages) {
     title: p.title,
     description: p.description,
     activeFile: p.file,
-    content: p.content
+    content: p.content,
   });
   fs.writeFileSync(path.join(DOCS_DIR, p.file), html, 'utf8');
   console.log(`✓ Generated website/docs/${p.file}`);

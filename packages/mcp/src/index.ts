@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { createBrainProvider } from '@centr/brain';
 import {
   CENTR_DIR,

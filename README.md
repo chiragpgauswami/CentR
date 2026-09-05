@@ -27,16 +27,16 @@
 
 ## ⚡ The 2-Minute Executive Summary
 
-| Question                                       | The CentR Answer                                                                                                                                                                                 |
-| :--------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **What is CentR?**                             | A local-first developer middleware that indexes code, maintains institutional memory, and supplies the smallest useful context to AI coding agents.                                              |
-| **Why does it exist?**                         | Coding agents (Claude Code, Cursor, Codex, Antigravity) waste 2–4 turns and thousands of tokens blindly running `find_by_name` and `grep_search` to find relevant files. CentR stops this cycle. |
-| **How is it different from RAG / Vector DBs?** | Vector DBs dump unvalidated chunk similarity into context. CentR is **deterministic AST symbol indexing + SQLite FTS5 BM25 + strict token budgets + evidence-scored memory**.                    |
-| **Does it replace my coding agent?**           | **No.** CentR is not an agent. It sits beside your agent via Model Context Protocol (MCP) or CLI to give it instant repository intelligence.                                                     |
-| **Does it require cloud AI or paid APIs?**     | **No.** Zero cloud dependencies. Runs 100% locally with SQLite 3. An optional local Small Language Model (SLM) Brain can be attached via Ollama, but is never required.                          |
-| **What does the optional Brain do?**           | Provides semantic re-ranking, task classification, and failure diagnosis. Core is always the authority; the Brain is an advisor.                                                                 |
-| **What privacy guarantees exist?**             | **Zero telemetry.** Your code, tokens, memories, and index never leave your machine. Secrets are automatically redacted before indexing.                                                         |
-| **What evidence exists that it helps?**        | In our verified 21-run real-agent benchmark across 7 software engineering tasks, CentR reduced exploratory tool calls by **33.3%** (-2 tool calls per task) on turn 1.                           |
+| Question                                       | The CentR Answer                                                                                                                                                                                                                                                                                             |
+| :--------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **What is CentR?**                             | A local-first developer middleware that indexes code, maintains institutional memory, and supplies the smallest useful context to AI coding agents.                                                                                                                                                          |
+| **Why does it exist?**                         | Coding agents (Claude Code, Cursor, Codex, Antigravity) waste 2–4 turns and thousands of tokens blindly running `find_by_name` and `grep_search` to find relevant files. CentR stops this cycle.                                                                                                             |
+| **How is it different from RAG / Vector DBs?** | Vector DBs dump unvalidated chunk similarity into context. CentR is **deterministic AST symbol indexing + SQLite FTS5 BM25 + strict token budgets + evidence-scored memory**.                                                                                                                                |
+| **Does it replace my coding agent?**           | **No.** CentR is not an agent. It sits beside your agent via Model Context Protocol (MCP) or CLI to give it instant repository intelligence.                                                                                                                                                                 |
+| **Does it require cloud AI or paid APIs?**     | **No.** Zero cloud dependencies. Runs 100% locally with SQLite 3. An optional local Small Language Model (SLM) Brain can be attached via Ollama, but is never required.                                                                                                                                      |
+| **What does the optional Brain do?**           | Provides semantic re-ranking, task classification, and failure diagnosis. Core is always the authority; the Brain is an advisor.                                                                                                                                                                             |
+| **What privacy guarantees exist?**             | **Zero telemetry.** Your code, tokens, memories, and index never leave your machine. Secrets are automatically redacted before indexing.                                                                                                                                                                     |
+| **What evidence exists that it helps?**        | Preliminary interactive benchmark observations showed fewer exploratory tool calls (-2 calls per task on turn 1 in tested scenarios). Agent token telemetry was not available, so these results should not be interpreted as a controlled measurement of token savings or universal performance improvement. |
 
 ---
 
@@ -214,7 +214,7 @@ CentR includes an objective, reproducible **Agent A/B Benchmark Harness** (`@cen
 
 ### Key Empirical Findings:
 
-1. **Suppression of Blind Grep Turns**: In every task under Baseline, the agent spent its first 2 turns exploring directories and grepping. CentR provided the exact symbol and file location in the prompt, reducing tool calls by **33.3%** on turn 1.
+1. **Suppression of Blind Grep Turns**: In tested Baseline runs, the agent performed initial exploratory file reads. CentR supplied relevant symbol and file context immediately, eliminating initial exploratory searching in observed runs.
 2. **Sub-2ms Core Latency**: CentR V1 retrieval added only **1.2 ms** to overall task execution.
 3. **Zero Cloud Tokens**: All runs consumed **0 cloud tokens** and incurred **$0.00** API costs.
 

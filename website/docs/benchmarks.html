@@ -5,8 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Benchmarks & Validation — CentR Documentation</title>
   <meta name="description" content="Real-agent A/B benchmark findings, disclosures, and reproduction guide.">
+  <link rel="canonical" href="https://chiragpgauswami.github.io/CentR/docs/benchmarks.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="CentR Contributors">
+  <meta name="theme-color" content="#080C14">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../styles/main.css">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="CentR">
+  <meta property="og:title" content="Benchmarks & Validation — CentR Documentation">
+  <meta property="og:description" content="Real-agent A/B benchmark findings, disclosures, and reproduction guide.">
+  <meta property="og:url" content="https://chiragpgauswami.github.io/CentR/docs/benchmarks.html">
+  <meta property="og:image" content="https://chiragpgauswami.github.io/CentR/assets/social-preview.svg">
+  <meta property="og:image:alt" content="Benchmarks & Validation — CentR Documentation">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Benchmarks & Validation — CentR Documentation">
+  <meta name="twitter:description" content="Real-agent A/B benchmark findings, disclosures, and reproduction guide.">
+  <meta name="twitter:image" content="https://chiragpgauswami.github.io/CentR/assets/social-preview.svg">
+
+  <!-- Structured Data (Schema.org TechArticle) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Benchmarks & Validation",
+    "description": "Real-agent A/B benchmark findings, disclosures, and reproduction guide.",
+    "url": "https://chiragpgauswami.github.io/CentR/docs/benchmarks.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "CentR",
+      "url": "https://chiragpgauswami.github.io/CentR/"
+    }
+  }
+  </script>
 </head>
 <body>
   <!-- Header -->
@@ -54,13 +89,20 @@
       <div class="sidebar-title">Tools & Integrations</div><a href="mcp.html" class="sidebar-link ">Model Context Protocol (MCP)</a><a href="cli.html" class="sidebar-link ">CLI Command Reference</a></div><div class="sidebar-group">
       <div class="sidebar-title">Engineering & Standards</div><a href="security.html" class="sidebar-link ">Security & Privacy</a><a href="benchmarks.html" class="sidebar-link active">Benchmarks & Validation</a><a href="contributing.html" class="sidebar-link ">Contributing Guide</a></div></div>
       <main class="docs-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+          <a href="../index.html" style="color: var(--text-muted); text-decoration: none;">CentR</a>
+          <span style="margin: 0 0.5rem;">/</span>
+          <a href="getting-started.html" style="color: var(--text-muted); text-decoration: none;">Docs</a>
+          <span style="margin: 0 0.5rem;">/</span>
+          <span style="color: var(--accent); font-weight: 500;">Benchmarks & Validation</span>
+        </nav>
         
 <h1>Real-Agent A/B Benchmark Validation</h1>
 <p>CentR includes an objective, reproducible <strong>Agent A/B Benchmark Harness</strong> evaluating 27 real software engineering tasks across 7 categories.</p>
 
 <div class="callout">
   <div class="callout-title">Preliminary Interactive Benchmark Disclosure</div>
-  <p>Evaluated using <strong>Google Antigravity (Gemini 2.5 Pro)</strong> on clean, isolated workspaces across 7 tasks and 3 scenarios (21 total runs). Agent token telemetry was unobserved at the tool boundary, so token metrics remain null (zero fabrication). Observed tool call counts and test results represent verified executions.</p>
+  <p>Preliminary interactive benchmark observations showed fewer exploratory tool calls in the tested scenarios. Agent token telemetry was not available, so these results should not be interpreted as a controlled measurement of token savings or universal performance improvement. Observed tool call counts and test results represent verified executions.</p>
 </div>
 
 <h2>Summary of Results (7 Tasks, 21 Verified Runs)</h2>
@@ -69,8 +111,8 @@
     <thead><tr><th>Scenario</th><th>Mode</th><th>Avg Completion Time</th><th>Observed Tool Calls</th><th>Test Pass Rate</th><th>Git Patch Size</th></tr></thead>
     <tbody>
       <tr><td><strong>Baseline (No CentR)</strong></td><td>manual</td><td>167,143 ms</td><td>6.0 calls</td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
-      <tr><td><strong>CentR V1 (Core)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (-33.3%)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
-      <tr><td><strong>CentR V2 (Hybrid)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (-33.3%)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
+      <tr><td><strong>CentR V1 (Core)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (preliminary observed)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
+      <tr><td><strong>CentR V2 (Hybrid)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (preliminary observed)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
     </tbody>
   </table>
 </div>

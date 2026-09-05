@@ -1,13 +1,22 @@
 {
   "name": "@centr/cli",
   "version": "0.1.0",
-  "description": "CentR Command Line Interface",
+  "description": "Command Line Interface for CentR project intelligence and learning middleware",
   "type": "module",
   "bin": {
     "centr": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "tsc -b",
     "clean": "rm -rf dist tsconfig.tsbuildinfo",
@@ -16,12 +25,18 @@
   },
   "license": "MIT",
   "author": "CentR Contributors",
+  "homepage": "https://chiragpgauswami.github.io/CentR/",
   "repository": {
     "type": "git",
     "url": "https://github.com/chiragpgauswami/CentR.git",
     "directory": "packages/cli"
   },
+  "bugs": {
+    "url": "https://github.com/chiragpgauswami/CentR/issues"
+  },
   "keywords": [
+    "centr",
+    "cli",
     "ai",
     "coding-agents",
     "context-engine",
@@ -31,10 +46,14 @@
     "codex",
     "cursor"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "dependencies": {
     "@centr/core": "0.1.0",

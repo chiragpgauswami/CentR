@@ -1,12 +1,21 @@
 {
   "name": "@centr/benchmark-ab",
   "version": "0.1.0",
-  "description": "CentR Real Agent A/B Benchmark Harness",
+  "description": "Scientific real-agent A/B benchmark harness for CentR",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "bin": {
     "centr-benchmark": "./dist/cli.js"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "scripts": {
     "build": "tsc -b",
@@ -14,6 +23,26 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
+  "license": "MIT",
+  "author": "CentR Contributors",
+  "homepage": "https://chiragpgauswami.github.io/CentR/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiragpgauswami/CentR.git",
+    "directory": "benchmarks/agent-ab"
+  },
+  "bugs": {
+    "url": "https://github.com/chiragpgauswami/CentR/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "dependencies": {
     "@centr/core": "0.1.0",
     "@centr/brain": "0.1.0",

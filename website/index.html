@@ -1,337 +1,492 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CentR — Local-first Project Intelligence + Learning Middleware for AI Coding Agents</title>
-  <meta name="description" content="CentR gives AI coding agents a persistent, token-efficient memory of your codebase without repeated exploration. Local-first, SQLite+FTS5, zero cloud telemetry.">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles/main.css">
-  
-  <!-- Open Graph / Social Media -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="CentR — Project Intelligence + Learning Middleware">
-  <meta property="og:description" content="Give your coding agent a persistent memory of the codebase. Local-first, token-budgeted, zero cloud telemetry.">
-  <meta property="og:image" content="assets/social-preview.svg">
-  <meta name="twitter:card" content="summary_large_image">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CentR — Local-First Project Intelligence for AI Coding Agents</title>
+    <meta
+      name="description"
+      content="CentR is local-first project intelligence and learning middleware for AI coding agents. Build project memory, reusable learning, code intelligence, and optimized context with SQLite, FTS5, AST parsing, MCP, and optional local AI."
+    />
+    <link rel="canonical" href="https://chiragpgauswami.github.io/CentR/" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="CentR Contributors" />
+    <meta name="theme-color" content="#080C14" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="styles/main.css" />
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-container">
-      <a href="index.html" class="brand">
-        <img src="assets/icon.svg" alt="CentR Icon" class="brand-icon">
-        <span>Cent<span style="color: var(--accent);">R</span></span>
-        <span class="brand-tag">v0.1.0</span>
-      </a>
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CentR" />
+    <meta
+      property="og:title"
+      content="CentR — Local-First Project Intelligence for AI Coding Agents"
+    />
+    <meta
+      property="og:description"
+      content="CentR is local-first project intelligence and learning middleware for AI coding agents. Build project memory, reusable learning, code intelligence, and optimized context with SQLite, FTS5, AST parsing, MCP, and optional local AI."
+    />
+    <meta property="og:url" content="https://chiragpgauswami.github.io/CentR/" />
+    <meta
+      property="og:image"
+      content="https://chiragpgauswami.github.io/CentR/assets/social-preview.svg"
+    />
+    <meta
+      property="og:image:alt"
+      content="CentR — Local-First Project Intelligence for AI Coding Agents"
+    />
 
-      <nav class="nav">
-        <a href="docs/getting-started.html" class="nav-link">Getting Started</a>
-        <a href="docs/architecture.html" class="nav-link">Architecture</a>
-        <a href="docs/memory.html" class="nav-link">Memory</a>
-        <a href="docs/learning.html" class="nav-link">Learning</a>
-        <a href="docs/brain.html" class="nav-link">Local Brain</a>
-        <a href="docs/mcp.html" class="nav-link">MCP</a>
-        <a href="docs/cli.html" class="nav-link">CLI</a>
-        <a href="docs/benchmarks.html" class="nav-link">Benchmarks</a>
-        <a href="docs/security.html" class="nav-link">Security</a>
-      </nav>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="CentR — Local-First Project Intelligence for AI Coding Agents"
+    />
+    <meta
+      name="twitter:description"
+      content="CentR is local-first project intelligence and learning middleware for AI coding agents. Build project memory, reusable learning, code intelligence, and optimized context with SQLite, FTS5, AST parsing, MCP, and optional local AI."
+    />
+    <meta
+      name="twitter:image"
+      content="https://chiragpgauswami.github.io/CentR/assets/social-preview.svg"
+    />
 
-      <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <span id="theme-icon">☀️</span>
-        </button>
-        <a href="https://github.com/chiragpgauswami/CentR" target="_blank" rel="noopener noreferrer" class="btn-github">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://chiragpgauswami.github.io/CentR/#website",
+            "url": "https://chiragpgauswami.github.io/CentR/",
+            "name": "CentR",
+            "description": "Local-First Project Intelligence and Learning Middleware for AI Coding Agents",
+            "publisher": {
+              "@id": "https://chiragpgauswami.github.io/CentR/#organization"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://chiragpgauswami.github.io/CentR/#organization",
+            "name": "CentR",
+            "url": "https://chiragpgauswami.github.io/CentR/",
+            "logo": "https://chiragpgauswami.github.io/CentR/assets/icon.svg",
+            "sameAs": ["https://github.com/chiragpgauswami/CentR"]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://chiragpgauswami.github.io/CentR/#software",
+            "name": "CentR",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "All",
+            "description": "Local-first project intelligence and learning middleware for AI coding agents. Build project memory, reusable learning, code intelligence, and optimized context with SQLite, FTS5, AST parsing, MCP, and optional local AI.",
+            "url": "https://chiragpgauswami.github.io/CentR/",
+            "codeRepository": "https://github.com/chiragpgauswami/CentR",
+            "license": "https://github.com/chiragpgauswami/CentR/blob/main/LICENSE",
+            "softwareVersion": "0.1.0"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <a href="index.html" class="brand">
+          <img src="assets/icon.svg" alt="CentR Icon" class="brand-icon" />
+          <span>Cent<span style="color: var(--accent)">R</span></span>
+          <span class="brand-tag">v0.1.0</span>
         </a>
-      </div>
-    </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-badge">
-        <span>⚡</span> Local-First • SQLite + FTS5 • 0 Cloud Telemetry
-      </div>
+        <nav class="nav">
+          <a href="docs/getting-started.html" class="nav-link">Getting Started</a>
+          <a href="docs/architecture.html" class="nav-link">Architecture</a>
+          <a href="docs/memory.html" class="nav-link">Memory</a>
+          <a href="docs/learning.html" class="nav-link">Learning</a>
+          <a href="docs/brain.html" class="nav-link">Local Brain</a>
+          <a href="docs/mcp.html" class="nav-link">MCP</a>
+          <a href="docs/cli.html" class="nav-link">CLI</a>
+          <a href="docs/benchmarks.html" class="nav-link">Benchmarks</a>
+          <a href="docs/security.html" class="nav-link">Security</a>
+        </nav>
 
-      <h1 class="hero-title">
-        Give your coding agent a <span>memory of the codebase</span>.
-      </h1>
-
-      <p class="hero-subtitle">
-        CentR is the project intelligence and learning middleware that turns repetitive repository exploration into compact, token-efficient context.
-      </p>
-
-      <div class="hero-actions">
-        <a href="docs/getting-started.html" class="btn-primary">Get Started</a>
-        <a href="docs/architecture.html" class="btn-secondary">Read Architecture</a>
-        <a href="https://github.com/chiragpgauswami/CentR" target="_blank" rel="noopener noreferrer" class="btn-secondary">GitHub</a>
-      </div>
-
-      <div class="install-box">
-        <code>$ npm install -g @centr/cli</code>
-        <button class="install-copy-btn copy-btn" data-target="cmd-install">Copy</button>
-        <span id="cmd-install" style="display: none;">npm install -g @centr/cli</span>
-      </div>
-
-      <div class="hero-visual">
-        <img src="assets/architecture.svg" alt="CentR System Architecture" width="1000" height="640">
-      </div>
-    </div>
-  </section>
-
-  <!-- The Problem Section -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">The Problem</span>
-        <h2 class="section-title">The Exploration Tax in AI Coding</h2>
-        <p class="section-desc">Why do agents waste 30-50% of their turn budget reading the same files?</p>
-      </div>
-
-      <div class="grid-2">
-        <div class="card" style="border-color: #EF4444; background: rgba(239, 68, 68, 0.03);">
-          <div class="card-icon">❌</div>
-          <h3 class="card-title">Standard Agent Exploration</h3>
-          <p class="card-desc">
-            The agent enters blind. It runs <code>find_by_name</code>, then <code>grep_search</code>, then reads 3 irrelevant files, follows imports, searches again, and exhausts 2–4 turns and thousands of prompt tokens before writing a single line of code.
-          </p>
-        </div>
-
-        <div class="card" style="border-color: var(--accent); background: var(--accent-glow);">
-          <div class="card-icon">✅</div>
-          <h3 class="card-title">With CentR Intelligence</h3>
-          <p class="card-desc">
-            CentR supplies the exact AST symbols, relevant file paths, architectural constraints, and validated learnings directly in turn 1. The agent reads the target file directly, reducing tool calls by <strong>33.3%</strong> in empirical tests.
-          </p>
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <span id="theme-icon">☀️</span>
+          </button>
+          <a
+            href="https://github.com/chiragpgauswami/CentR"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-github"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+            GitHub
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- How CentR Works -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Workflow</span>
-        <h2 class="section-title">How CentR Operates</h2>
-        <p class="section-desc">Store everything useful. Send almost nothing.</p>
-      </div>
-
-      <div class="hero-visual" style="margin-top: 0; margin-bottom: 3rem;">
-        <img src="assets/centr-overview.svg" alt="CentR Lifecycle Overview" width="1000" height="480">
-      </div>
-
-      <div class="grid-4">
-        <div class="card">
-          <div class="card-icon">01</div>
-          <h3 class="card-title">Index & Sync</h3>
-          <p class="card-desc">Parses TypeScript/JavaScript AST into symbols, imports, and routes. Incremental SHA-256 sync verifies changes in sub-10ms.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          <span>⚡</span> Local-First • SQLite + FTS5 • 0 Cloud Telemetry
         </div>
 
-        <div class="card">
-          <div class="card-icon">02</div>
-          <h3 class="card-title">Retrieve</h3>
-          <p class="card-desc">SQLite 3 + FTS5 BM25 ranked search scores symbols, paths, and memories with sub-2ms latency.</p>
-        </div>
+        <h1 class="hero-title">Project Intelligence for <span>AI Coding Agents</span></h1>
 
-        <div class="card">
-          <div class="card-icon">03</div>
-          <h3 class="card-title">Reason (Optional)</h3>
-          <p class="card-desc">Optional local SLM re-ranks bounded candidates. Strict hallucination guards ensure zero invented files.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">04</div>
-          <h3 class="card-title">Learn</h3>
-          <p class="card-desc">Observed successes update evidence confidence scores. Validated learnings become reusable across projects.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Features -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Capabilities</span>
-        <h2 class="section-title">Engineered for Real Repositories</h2>
-        <p class="section-desc">Deterministic intelligence where it counts, semantic reasoning where it helps.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-icon">🌲</div>
-          <h3 class="card-title">AST-Based Code Indexing</h3>
-          <p class="card-desc">Extracts functions, classes, interfaces, types, and dependencies using TypeScript's Compiler API. Never guesses.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🧠</div>
-          <h3 class="card-title">Project Memory</h3>
-          <p class="card-desc">Project-isolated institutional knowledge. Retains architecture patterns, bug resolutions, and API contracts.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🌐</div>
-          <h3 class="card-title">Evidence-Based Learning</h3>
-          <p class="card-desc">Cross-project wisdom requiring mathematical evidence (&ge; 70% success rate, &ge; 3 validations) before promotion.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">⚖️</div>
-          <h3 class="card-title">Token Budgeting</h3>
-          <p class="card-desc">Greedy relevance packing strictly bounds context tokens (e.g. 4000 tokens), preventing agent context overflow.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🤖</div>
-          <h3 class="card-title">Optional Local Brain</h3>
-          <p class="card-desc">Local Small Language Models (Ollama 1B–7B) for semantic re-ranking, task understanding, and failure diagnosis.</p>
-        </div>
-
-        <div class="card">
-          <div class="card-icon">🔌</div>
-          <h3 class="card-title">Model Context Protocol (MCP)</h3>
-          <p class="card-desc">Native stdio MCP server for seamless plug-and-play with Claude Code, Cursor, and OpenAI Codex.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- V1 vs V2 Comparison -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Architecture</span>
-        <h2 class="section-title">CentR V1 vs. CentR V2</h2>
-        <p class="section-desc">V2 augments the deterministic Core. It does not replace it.</p>
-      </div>
-
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Feature</th>
-              <th>CentR V1 (Core)</th>
-              <th>CentR V2 (Hybrid Brain)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Primary Authority</strong></td>
-              <td>Deterministic Core (AST + SQLite)</td>
-              <td>Deterministic Core (Core is Authority, Brain is Advisor)</td>
-            </tr>
-            <tr>
-              <td><strong>Search Latency</strong></td>
-              <td>&lt; 2 ms (FTS5 BM25)</td>
-              <td>&lt; 2 ms Core + ~7–12 ms local SLM re-ranking</td>
-            </tr>
-            <tr>
-              <td><strong>Cloud AI Requirement</strong></td>
-              <td>Zero (100% Offline)</td>
-              <td>Zero (100% Offline via local Ollama / SLM)</td>
-            </tr>
-            <tr>
-              <td><strong>Semantic Re-ranking</strong></td>
-              <td>Deterministic FTS5 weights</td>
-              <td>Small Language Model prompt scoring</td>
-            </tr>
-            <tr>
-              <td><strong>Hallucination Defense</strong></td>
-              <td>Impossible (grounded in AST)</td>
-              <td>Strict candidate bounding (prunes ungrounded IDs)</td>
-            </tr>
-            <tr>
-              <td><strong>Fallback Behavior</strong></td>
-              <td>N/A (Pure Deterministic)</td>
-              <td>Automatic fallback to V1 if Brain is slow/offline</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Real-Agent Benchmarks -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Scientific Validation</span>
-        <h2 class="section-title">Real-Agent A/B Benchmark Results</h2>
-        <p class="section-desc">Preliminary interactive benchmark evaluating 7 software tasks across 21 verified runs.</p>
-      </div>
-
-      <div class="callout">
-        <div class="callout-title">Honest Benchmark Disclosure</div>
-        <p>
-          Evaluated using <strong>Google Antigravity (Gemini 2.5 Pro)</strong> on clean, isolated workspaces. Agent-level token telemetry was not exposed at the tool boundary, so token usage is <strong>not claimed</strong>. All tool call counts and test results represent verified, observed execution.
+        <p class="hero-subtitle">
+          CentR gives coding agents persistent project memory, reusable learning, and only the
+          context they actually need.
         </p>
-      </div>
 
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Scenario</th>
-              <th>Execution Mode</th>
-              <th>Avg Completion Time</th>
-              <th>Observed Tool Calls</th>
-              <th>Test Pass Rate</th>
-              <th>Git Patch Size</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Scenario A (Baseline)</strong></td>
-              <td>manual</td>
-              <td>167,143 ms</td>
-              <td>6.0 calls</td>
-              <td><strong>100%</strong> (7/7 passed)</td>
-              <td>+23 lines avg</td>
-            </tr>
-            <tr>
-              <td><strong>Scenario B (CentR V1)</strong></td>
-              <td>manual</td>
-              <td>122,263 ms (-45s)</td>
-              <td><strong>4.0 calls (-33.3%)</strong></td>
-              <td><strong>100%</strong> (7/7 passed)</td>
-              <td>+23 lines avg</td>
-            </tr>
-            <tr>
-              <td><strong>Scenario C (CentR V2)</strong></td>
-              <td>manual</td>
-              <td>122,263 ms (-45s)</td>
-              <td><strong>4.0 calls (-33.3%)</strong></td>
-              <td><strong>100%</strong> (7/7 passed)</td>
-              <td>+23 lines avg</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quick Start -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Get Started in 60 Seconds</span>
-        <h2 class="section-title">Simple Terminal Workflow</h2>
-        <p class="section-desc">Initialize your repository with a single command.</p>
-      </div>
-
-      <div class="code-block">
-        <div class="code-header">
-          <span>bash</span>
-          <button class="install-copy-btn copy-btn">Copy</button>
+        <div
+          class="slogan-badge"
+          style="
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.05rem;
+          "
+        >
+          Store everything useful. Send almost nothing.
         </div>
-        <div class="code-content">
-          <pre><code># 1. Install CentR globally
+
+        <div class="hero-actions">
+          <a href="docs/getting-started.html" class="btn-primary">Get Started</a>
+          <a href="docs/architecture.html" class="btn-secondary">Read Architecture</a>
+          <a
+            href="https://github.com/chiragpgauswami/CentR"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary"
+            >GitHub</a
+          >
+        </div>
+
+        <div class="install-box">
+          <code>$ npm install -g @centr/cli</code>
+          <button class="install-copy-btn copy-btn" data-target="cmd-install">Copy</button>
+          <span id="cmd-install" style="display: none">npm install -g @centr/cli</span>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            src="assets/architecture.svg"
+            alt="CentR System Architecture"
+            width="1000"
+            height="640"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- The Problem Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">The Problem</span>
+          <h2 class="section-title">The Exploration Tax in AI Coding</h2>
+          <p class="section-desc">
+            Why do agents waste 30-50% of their turn budget reading the same files?
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card" style="border-color: #ef4444; background: rgba(239, 68, 68, 0.03)">
+            <div class="card-icon">❌</div>
+            <h3 class="card-title">Standard Agent Exploration</h3>
+            <p class="card-desc">
+              The agent enters blind. It runs <code>find_by_name</code>, then
+              <code>grep_search</code>, then reads 3 irrelevant files, follows imports, searches
+              again, and exhausts 2–4 turns and thousands of prompt tokens before writing a single
+              line of code.
+            </p>
+          </div>
+
+          <div class="card" style="border-color: var(--accent); background: var(--accent-glow)">
+            <div class="card-icon">✅</div>
+            <h3 class="card-title">With CentR Intelligence</h3>
+            <p class="card-desc">
+              CentR supplies the exact AST symbols, relevant file paths, architectural constraints,
+              and validated learnings directly in turn 1. The agent pinpoints the target file
+              directly without blind exploratory searches.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How CentR Works -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Workflow</span>
+          <h2 class="section-title">How CentR Operates</h2>
+          <p class="section-desc">Store everything useful. Send almost nothing.</p>
+        </div>
+
+        <div class="hero-visual" style="margin-top: 0; margin-bottom: 3rem">
+          <img
+            src="assets/centr-overview.svg"
+            alt="CentR Lifecycle Overview"
+            width="1000"
+            height="480"
+          />
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="card-icon">01</div>
+            <h3 class="card-title">Index & Sync</h3>
+            <p class="card-desc">
+              Parses TypeScript/JavaScript AST into symbols, imports, and routes. Incremental
+              SHA-256 sync verifies changes in sub-10ms.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">02</div>
+            <h3 class="card-title">Retrieve</h3>
+            <p class="card-desc">
+              SQLite 3 + FTS5 BM25 ranked search scores symbols, paths, and memories with sub-2ms
+              latency.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">03</div>
+            <h3 class="card-title">Reason (Optional)</h3>
+            <p class="card-desc">
+              Optional local SLM re-ranks bounded candidates. Strict hallucination guards ensure
+              zero invented files.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">04</div>
+            <h3 class="card-title">Learn</h3>
+            <p class="card-desc">
+              Observed successes update evidence confidence scores. Validated learnings become
+              reusable across projects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Capabilities</span>
+          <h2 class="section-title">Engineered for Real Repositories</h2>
+          <p class="section-desc">
+            Deterministic intelligence where it counts, semantic reasoning where it helps.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-icon">🌲</div>
+            <h3 class="card-title">AST-Based Code Indexing</h3>
+            <p class="card-desc">
+              Extracts functions, classes, interfaces, types, and dependencies using TypeScript's
+              Compiler API. Never guesses.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🧠</div>
+            <h3 class="card-title">Project Memory</h3>
+            <p class="card-desc">
+              Project-isolated institutional knowledge. Retains architecture patterns, bug
+              resolutions, and API contracts.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🌐</div>
+            <h3 class="card-title">Evidence-Based Learning</h3>
+            <p class="card-desc">
+              Cross-project wisdom requiring mathematical evidence (&ge; 70% success rate, &ge; 3
+              validations) before promotion.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">⚖️</div>
+            <h3 class="card-title">Token Budgeting</h3>
+            <p class="card-desc">
+              Greedy relevance packing strictly bounds context tokens (e.g. 4000 tokens), preventing
+              agent context overflow.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🤖</div>
+            <h3 class="card-title">Optional Local Brain</h3>
+            <p class="card-desc">
+              Local Small Language Models (Ollama 1B–7B) for semantic re-ranking, task
+              understanding, and failure diagnosis.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🔌</div>
+            <h3 class="card-title">Model Context Protocol (MCP)</h3>
+            <p class="card-desc">
+              Native stdio MCP server for seamless plug-and-play with Claude Code, Cursor, and
+              OpenAI Codex.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V1 vs V2 Comparison -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Architecture</span>
+          <h2 class="section-title">CentR V1 vs. CentR V2</h2>
+          <p class="section-desc">V2 augments the deterministic Core. It does not replace it.</p>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>CentR V1 (Core)</th>
+                <th>CentR V2 (Hybrid Brain)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Primary Authority</strong></td>
+                <td>Deterministic Core (AST + SQLite)</td>
+                <td>Deterministic Core (Core is Authority, Brain is Advisor)</td>
+              </tr>
+              <tr>
+                <td><strong>Search Latency</strong></td>
+                <td>&lt; 2 ms (FTS5 BM25)</td>
+                <td>&lt; 2 ms Core + ~7–12 ms local SLM re-ranking</td>
+              </tr>
+              <tr>
+                <td><strong>Cloud AI Requirement</strong></td>
+                <td>Zero (100% Offline)</td>
+                <td>Zero (100% Offline via local Ollama / SLM)</td>
+              </tr>
+              <tr>
+                <td><strong>Semantic Re-ranking</strong></td>
+                <td>Deterministic FTS5 weights</td>
+                <td>Small Language Model prompt scoring</td>
+              </tr>
+              <tr>
+                <td><strong>Hallucination Defense</strong></td>
+                <td>Impossible (grounded in AST)</td>
+                <td>Strict candidate bounding (prunes ungrounded IDs)</td>
+              </tr>
+              <tr>
+                <td><strong>Fallback Behavior</strong></td>
+                <td>N/A (Pure Deterministic)</td>
+                <td>Automatic fallback to V1 if Brain is slow/offline</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real-Agent Benchmarks -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Scientific Validation</span>
+          <h2 class="section-title">Real-Agent A/B Benchmark Results</h2>
+          <p class="section-desc">
+            Preliminary interactive benchmark evaluating 7 software tasks across 21 verified runs.
+          </p>
+        </div>
+
+        <div class="callout">
+          <div class="callout-title">Preliminary Interactive Benchmark Disclosure</div>
+          <p>
+            Preliminary interactive benchmark observations showed fewer exploratory tool calls in
+            the tested scenarios. Agent token telemetry was not available, so these results should
+            not be interpreted as a controlled measurement of token savings or universal performance
+            improvement. Observed tool call counts and test results represent verified executions.
+          </p>
+        </div>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Scenario</th>
+                <th>Execution Mode</th>
+                <th>Avg Completion Time</th>
+                <th>Observed Tool Calls</th>
+                <th>Test Pass Rate</th>
+                <th>Git Patch Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Scenario A (Baseline)</strong></td>
+                <td>manual</td>
+                <td>167,143 ms</td>
+                <td>6.0 calls</td>
+                <td><strong>100%</strong> (7/7 passed)</td>
+                <td>+23 lines avg</td>
+              </tr>
+              <tr>
+                <td><strong>Scenario B (CentR V1)</strong></td>
+                <td>manual</td>
+                <td>122,263 ms (-45s)</td>
+                <td><strong>4.0 calls (preliminary observed)</strong></td>
+                <td><strong>100%</strong> (7/7 passed)</td>
+                <td>+23 lines avg</td>
+              </tr>
+              <tr>
+                <td><strong>Scenario C (CentR V2)</strong></td>
+                <td>manual</td>
+                <td>122,263 ms (-45s)</td>
+                <td><strong>4.0 calls (preliminary observed)</strong></td>
+                <td><strong>100%</strong> (7/7 passed)</td>
+                <td>+23 lines avg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Get Started in 60 Seconds</span>
+          <h2 class="section-title">Simple Terminal Workflow</h2>
+          <p class="section-desc">Initialize your repository with a single command.</p>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span>bash</span>
+            <button class="install-copy-btn copy-btn">Copy</button>
+          </div>
+          <div class="code-content">
+            <pre><code># 1. Install CentR globally
 npm install -g @centr/cli
 
 # 2. Initialize in your project
@@ -344,63 +499,78 @@ centr context "Add rate limiting middleware to auth routes"
 # 4. Search symbols or view status
 centr search "verifyToken"
 centr status</code></pre>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand">
-            <img src="assets/icon.svg" alt="CentR Icon" class="brand-icon">
-            <span>Cent<span style="color: var(--accent);">R</span></span>
-          </a>
-          <p class="footer-desc">
-            Local-first Project Intelligence + Learning Middleware for AI Coding Agents. Store everything useful. Send almost nothing.
-          </p>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="brand">
+              <img src="assets/icon.svg" alt="CentR Icon" class="brand-icon" />
+              <span>Cent<span style="color: var(--accent)">R</span></span>
+            </a>
+            <p class="footer-desc">
+              Local-first Project Intelligence + Learning Middleware for AI Coding Agents. Store
+              everything useful. Send almost nothing.
+            </p>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Documentation</div>
+            <ul class="footer-links">
+              <li class="footer-link"><a href="docs/getting-started.html">Getting Started</a></li>
+              <li class="footer-link"><a href="docs/architecture.html">Architecture</a></li>
+              <li class="footer-link"><a href="docs/memory.html">Project Memory</a></li>
+              <li class="footer-link"><a href="docs/learning.html">Global Learning</a></li>
+              <li class="footer-link"><a href="docs/brain.html">Local Brain</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Integrations & CLI</div>
+            <ul class="footer-links">
+              <li class="footer-link"><a href="docs/mcp.html">Model Context Protocol</a></li>
+              <li class="footer-link"><a href="docs/cli.html">CLI Command Reference</a></li>
+              <li class="footer-link"><a href="docs/benchmarks.html">Benchmarks</a></li>
+              <li class="footer-link"><a href="docs/security.html">Security & Privacy</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="footer-col-title">Community</div>
+            <ul class="footer-links">
+              <li class="footer-link">
+                <a
+                  href="https://github.com/chiragpgauswami/CentR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >GitHub Repository</a
+                >
+              </li>
+              <li class="footer-link"><a href="docs/contributing.html">Contributing Guide</a></li>
+              <li class="footer-link">
+                <a
+                  href="https://github.com/chiragpgauswami/CentR/blob/main/LICENSE"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >MIT License</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div>
-          <div class="footer-col-title">Documentation</div>
-          <ul class="footer-links">
-            <li class="footer-link"><a href="docs/getting-started.html">Getting Started</a></li>
-            <li class="footer-link"><a href="docs/architecture.html">Architecture</a></li>
-            <li class="footer-link"><a href="docs/memory.html">Project Memory</a></li>
-            <li class="footer-link"><a href="docs/learning.html">Global Learning</a></li>
-            <li class="footer-link"><a href="docs/brain.html">Local Brain</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Integrations & CLI</div>
-          <ul class="footer-links">
-            <li class="footer-link"><a href="docs/mcp.html">Model Context Protocol</a></li>
-            <li class="footer-link"><a href="docs/cli.html">CLI Command Reference</a></li>
-            <li class="footer-link"><a href="docs/benchmarks.html">Benchmarks</a></li>
-            <li class="footer-link"><a href="docs/security.html">Security & Privacy</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Community</div>
-          <ul class="footer-links">
-            <li class="footer-link"><a href="https://github.com/chiragpgauswami/CentR" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-            <li class="footer-link"><a href="docs/contributing.html">Contributing Guide</a></li>
-            <li class="footer-link"><a href="https://github.com/chiragpgauswami/CentR/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a></li>
-          </ul>
+        <div class="footer-bottom">
+          <span>MIT © 2024–2026 CentR Contributors. Local-first developer infrastructure.</span>
+          <span>Built with TypeScript • SQLite • FTS5</span>
         </div>
       </div>
+    </footer>
 
-      <div class="footer-bottom">
-        <span>MIT © 2024–2026 CentR Contributors. Local-first developer infrastructure.</span>
-        <span>Built with TypeScript • SQLite • FTS5</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="scripts/main.js"></script>
-</body>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>

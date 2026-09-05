@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chiragpgauswami.github.io/CentR/sitemap.xml
+

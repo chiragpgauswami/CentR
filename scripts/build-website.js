@@ -12,9 +12,11 @@ const WEBSITE_DIR = path.resolve('website');
 const DOCS_DIR = path.resolve('website/docs');
 
 // 2. Verify Essential Files
-console.log('\n2. Verifying website directory structure...');
+console.log('\n2. Verifying website directory structure and SEO assets...');
 const essentialFiles = [
   'website/index.html',
+  'website/robots.txt',
+  'website/sitemap.xml',
   'website/styles/main.css',
   'website/scripts/main.js',
   'website/assets/logo.svg',

@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-09-05
 
 ### Added
-
 - **Deterministic Core Layer (`@centr/core`)**:
   - Full AST-based TypeScript/JavaScript parsing via TypeScript Compiler API (`ts.createSourceFile`).
   - Extracted symbol definitions: functions, classes, methods, interfaces, types, enums, variables, constants.
