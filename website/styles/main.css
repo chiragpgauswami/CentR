@@ -1,38 +1,38 @@
 :root {
-  --bg: #090D16;
-  --bg-card: #0F172A;
+  --bg: #090d16;
+  --bg-card: #0f172a;
   --bg-card-hover: #162036;
-  --bg-elevated: #1E293B;
-  --border: #1E293B;
+  --bg-elevated: #1e293b;
+  --border: #1e293b;
   --border-focus: #334155;
-  --text: #F8FAFC;
-  --text-muted: #94A3B8;
-  --text-subtle: #64748B;
-  --accent: #00F5A0;
-  --accent-secondary: #00D9F5;
+  --text: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+  --accent: #00f5a0;
+  --accent-secondary: #00d9f5;
   --accent-glow: rgba(0, 245, 160, 0.15);
   --code-bg: #060910;
   --header-bg: rgba(9, 13, 22, 0.85);
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
   --container-max: 1200px;
   --transition: all 0.2s ease-in-out;
 }
 
-[data-theme="light"] {
-  --bg: #F8FAFC;
-  --bg-card: #FFFFFF;
-  --bg-card-hover: #F1F5F9;
-  --bg-elevated: #E2E8F0;
-  --border: #E2E8F0;
-  --border-focus: #CBD5E1;
-  --text: #0F172A;
+[data-theme='light'] {
+  --bg: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-elevated: #e2e8f0;
+  --border: #e2e8f0;
+  --border-focus: #cbd5e1;
+  --text: #0f172a;
   --text-muted: #475569;
-  --text-subtle: #94A3B8;
+  --text-subtle: #94a3b8;
   --accent: #059669;
-  --accent-secondary: #0284C7;
+  --accent-secondary: #0284c7;
   --accent-glow: rgba(5, 150, 105, 0.12);
-  --code-bg: #F1F5F9;
+  --code-bg: #f1f5f9;
   --header-bg: rgba(248, 250, 252, 0.9);
 }
 
@@ -48,7 +48,9 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 a {
@@ -121,7 +123,8 @@ a:hover {
   transition: var(--transition);
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--text);
 }
 
@@ -236,7 +239,7 @@ a:hover {
   gap: 0.5rem;
   padding: 0.75rem 1.4rem;
   background: var(--accent);
-  color: #0A0E17;
+  color: #0a0e17;
   font-weight: 700;
   font-size: 0.95rem;
   border-radius: 8px;
@@ -272,9 +275,9 @@ a:hover {
 
 /* Install Box */
 .install-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   background: var(--code-bg);
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -300,6 +303,7 @@ a:hover {
   white-space: nowrap;
   overflow-x: auto;
   scrollbar-width: none;
+  flex: 0 1 auto;
 }
 
 .install-box code::-webkit-scrollbar {
@@ -323,7 +327,7 @@ a:hover {
   transition: all 0.2s ease;
   white-space: nowrap;
   flex-shrink: 0;
-  margin-left: 1rem;
+  margin-left: auto !important;
 }
 
 .install-copy-btn:hover {
@@ -467,7 +471,8 @@ table {
   font-size: 0.9rem;
 }
 
-th, td {
+th,
+td {
   padding: 0.85rem 1.2rem;
   border-bottom: 1px solid var(--border);
 }
@@ -559,7 +564,8 @@ tr:last-child td {
   transition: var(--transition);
 }
 
-.sidebar-link:hover, .sidebar-link.active {
+.sidebar-link:hover,
+.sidebar-link.active {
   color: var(--accent);
   background: var(--bg-card);
 }
@@ -596,7 +602,8 @@ tr:last-child td {
   font-size: 0.98rem;
 }
 
-.docs-content ul, .docs-content ol {
+.docs-content ul,
+.docs-content ol {
   margin-bottom: 1.25rem;
   padding-left: 1.5rem;
   color: var(--text-muted);
@@ -704,7 +711,9 @@ tr:last-child td {
   .hero-title {
     font-size: 2.2rem;
   }
-  .grid-2, .grid-3, .grid-4 {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
     grid-template-columns: 1fr;
   }
   .docs-layout {

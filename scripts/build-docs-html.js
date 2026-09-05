@@ -73,7 +73,7 @@ function renderPage({ title, description, activeFile, content }) {
   <meta name="author" content="CentR Contributors">
   <meta name="theme-color" content="#080C14">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/main.css?v=0.1.3">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="article">

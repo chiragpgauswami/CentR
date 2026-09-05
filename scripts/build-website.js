@@ -73,7 +73,8 @@ for (const htmlPath of htmlFiles) {
       continue;
     }
 
-    const resolved = path.resolve(fileDir, src);
+    const cleanSrc = src.split('?')[0];
+    const resolved = path.resolve(fileDir, cleanSrc);
     if (!fs.existsSync(resolved)) {
       console.error(`  ✗ [BROKEN SRC] ${relPath} -> ${src} (resolved: ${resolved})`);
       errors++;
@@ -107,8 +108,9 @@ for (const htmlPath of htmlFiles) {
       continue;
     }
 
-    // Relative link, possibly with hash
-    const [filePath, hash] = href.split('#');
+    // Relative link, possibly with query or hash
+    const [pathAndQuery, hash] = href.split('#');
+    const filePath = pathAndQuery.split('?')[0];
     if (filePath) {
       const resolved = path.resolve(fileDir, filePath);
       if (!fs.existsSync(resolved)) {

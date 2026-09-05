@@ -10,9 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Theme Management
 function initTheme() {
-  const savedTheme = localStorage.getItem('centr-theme') || 
+  const savedTheme =
+    localStorage.getItem('centr-theme') ||
     (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-  
+
   document.documentElement.setAttribute('data-theme', savedTheme);
   updateThemeIcon(savedTheme);
 
@@ -84,7 +85,9 @@ function initSearch() {
   searchInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase().trim();
     const links = document.querySelectorAll('.docs-sidebar .sidebar-link');
-    const sections = document.querySelectorAll('.docs-content section, .docs-content h2, .docs-content h3');
+    const sections = document.querySelectorAll(
+      '.docs-content section, .docs-content h2, .docs-content h3',
+    );
 
     if (!query) {
       links.forEach((l) => (l.style.display = 'block'));

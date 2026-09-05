@@ -13,7 +13,7 @@
     <meta name="author" content="CentR Contributors" />
     <meta name="theme-color" content="#080C14" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/main.css?v=0.1.3" />
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
@@ -172,17 +172,32 @@
           >
         </div>
 
-        <div class="install-box">
-          <code>$ npm install -g @centr-ai/cli</code>
-          <button class="install-copy-btn copy-btn" data-target="cmd-install" aria-label="Copy install command">
-            <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="install-box" style="display: flex; justify-content: space-between; align-items: center;">
+          <code style="flex: 0 1 auto;">$ npm install -g @centr-ai/cli</code>
+          <button
+            class="install-copy-btn copy-btn"
+            data-target="cmd-install"
+            aria-label="Copy install command"
+            style="margin-left: auto;"
+          >
+            <svg
+              class="copy-icon"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
             </svg>
             <span>Copy</span>
           </button>
-          <span id="cmd-install" style="display: none">npm install -g @centr-ai/cli</span>
         </div>
+        <span id="cmd-install" style="display: none">npm install -g @centr-ai/cli</span>
 
         <div class="hero-visual">
           <img
