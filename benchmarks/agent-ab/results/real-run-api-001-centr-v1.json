@@ -1,0 +1,49 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "real-run-api-001-centr-v1",
+  "taskId": "api-001",
+  "taskTitle": "Add pagination query parameters to UserController.listUsers",
+  "category": "api",
+  "retrievalClass": "class_1_exact",
+  "difficulty": "easy",
+  "scenario": "centr-v1",
+  "agent": "antigravity",
+  "executionMode": "manual",
+  "model": "gemini-2.5-pro",
+  "startedAt": "2026-09-05T10:34:57.939Z",
+  "finishedAt": "2026-09-05T10:36:58.079Z",
+  "durationMs": 120139.6,
+  "timing": {
+    "agentExecutionMs": 120000,
+    "centrLatencyMs": 139.6,
+    "totalWallClockMs": 120139.6
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 6,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 4,
+    "filesRead": 1,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 27
+  },
+  "centrMetrics": {
+    "enabled": true,
+    "contextItems": 12,
+    "contextTokens": 41,
+    "latencyMs": 139.6,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

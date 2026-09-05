@@ -1,0 +1,49 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "real-run-api-003-baseline",
+  "taskId": "api-003",
+  "taskTitle": "Expose healthcheck endpoint following project error handling conventions",
+  "category": "api",
+  "retrievalClass": "class_3_architectural_context",
+  "difficulty": "medium",
+  "scenario": "baseline",
+  "agent": "antigravity",
+  "executionMode": "manual",
+  "model": "gemini-2.5-pro",
+  "startedAt": "2026-09-05T10:34:15.967Z",
+  "finishedAt": "2026-09-05T10:37:00.967Z",
+  "durationMs": 165000,
+  "timing": {
+    "agentExecutionMs": 165000,
+    "centrLatencyMs": null,
+    "totalWallClockMs": 165000
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 6,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 6,
+    "filesRead": 3,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 13
+  },
+  "centrMetrics": {
+    "enabled": false,
+    "contextItems": 0,
+    "contextTokens": null,
+    "latencyMs": null,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

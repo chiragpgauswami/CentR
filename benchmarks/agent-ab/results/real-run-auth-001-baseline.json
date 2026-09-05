@@ -1,0 +1,49 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "real-run-auth-001-baseline",
+  "taskId": "auth-001",
+  "taskTitle": "Prevent replay attacks and token spoofing on protected routes",
+  "category": "authentication",
+  "retrievalClass": "class_2_vocabulary_mismatch",
+  "difficulty": "medium",
+  "scenario": "baseline",
+  "agent": "antigravity",
+  "executionMode": "manual",
+  "model": "gemini-2.5-pro",
+  "startedAt": "2026-09-05T10:22:30.000Z",
+  "finishedAt": "2026-09-05T10:25:30.000Z",
+  "durationMs": 180000,
+  "timing": {
+    "agentExecutionMs": 180000,
+    "centrLatencyMs": null,
+    "totalWallClockMs": 180000
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 5,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 6,
+    "filesRead": 3,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 21
+  },
+  "centrMetrics": {
+    "enabled": false,
+    "contextItems": 0,
+    "contextTokens": null,
+    "latencyMs": null,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

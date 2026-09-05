@@ -1,0 +1,49 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "real-run-api-003-centr-v2",
+  "taskId": "api-003",
+  "taskTitle": "Expose healthcheck endpoint following project error handling conventions",
+  "category": "api",
+  "retrievalClass": "class_3_architectural_context",
+  "difficulty": "medium",
+  "scenario": "centr-v2",
+  "agent": "antigravity",
+  "executionMode": "manual",
+  "model": "gemini-2.5-pro",
+  "startedAt": "2026-09-05T10:35:02.240Z",
+  "finishedAt": "2026-09-05T10:37:02.388Z",
+  "durationMs": 120147.1,
+  "timing": {
+    "agentExecutionMs": 120000,
+    "centrLatencyMs": 147.1,
+    "totalWallClockMs": 120147.1
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 6,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 4,
+    "filesRead": 1,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 13
+  },
+  "centrMetrics": {
+    "enabled": true,
+    "contextItems": 15,
+    "contextTokens": 64,
+    "latencyMs": 147.1,
+    "brainCalls": 1,
+    "brainLatencyMs": 117.7,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

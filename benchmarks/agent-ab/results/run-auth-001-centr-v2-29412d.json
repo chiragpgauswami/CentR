@@ -1,0 +1,51 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "run-auth-001-centr-v2-29412d",
+  "taskId": "auth-001",
+  "taskTitle": "Prevent replay attacks and token spoofing on protected routes",
+  "category": "authentication",
+  "retrievalClass": "class_2_vocabulary_mismatch",
+  "difficulty": "medium",
+  "scenario": "centr-v2",
+  "agent": "generic",
+  "executionMode": "simulated",
+  "model": "qwen2.5:1.5b",
+  "startedAt": "2026-09-05T09:59:13.428Z",
+  "finishedAt": "2026-09-05T09:59:13.779Z",
+  "durationMs": 22.373292000000106,
+  "timing": {
+    "agentExecutionMs": 10.60241700000006,
+    "centrLatencyMs": 11.770875000000046,
+    "totalWallClockMs": 22.373292000000106
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 1,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 3,
+    "filesRead": 3,
+    "filesModified": 0,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 0
+  },
+  "centrMetrics": {
+    "enabled": true,
+    "contextItems": 13,
+    "contextTokens": 62,
+    "latencyMs": 11.770875000000046,
+    "candidateCount": 13,
+    "selectedCount": 13,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@centr/mcp",
+  "version": "0.1.0",
+  "description": "CentR MCP server integration",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "license": "MIT",
+  "author": "CentR Contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiragpgauswami/CentR.git",
+    "directory": "packages/mcp"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@centr/brain": "0.1.0",
+    "@centr/core": "0.1.0",
+    "@modelcontextprotocol/sdk": "^1.30.0"
+  }
+}

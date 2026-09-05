@@ -1,0 +1,49 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "real-run-auth-002-centr-v1",
+  "taskId": "auth-002",
+  "taskTitle": "Update UserController to validate password complexity before registration",
+  "category": "authentication",
+  "retrievalClass": "class_1_exact",
+  "difficulty": "easy",
+  "scenario": "centr-v1",
+  "agent": "antigravity",
+  "executionMode": "manual",
+  "model": "gemini-2.5-pro",
+  "startedAt": "2026-09-05T10:34:52.580Z",
+  "finishedAt": "2026-09-05T10:36:52.721Z",
+  "durationMs": 120140.3,
+  "timing": {
+    "agentExecutionMs": 120000,
+    "centrLatencyMs": 140.3,
+    "totalWallClockMs": 120140.3
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 6,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 4,
+    "filesRead": 1,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 23
+  },
+  "centrMetrics": {
+    "enabled": true,
+    "contextItems": 24,
+    "contextTokens": 101,
+    "latencyMs": 140.3,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

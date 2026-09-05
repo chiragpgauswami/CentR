@@ -1,0 +1,57 @@
+[
+  {
+    "id": "tc-1",
+    "task": "Add JWT authentication middleware to Express API routes",
+    "projectContext": "Express TypeScript API with Postgres",
+    "expected": {
+      "category": "feature",
+      "subcategories": ["authentication", "security", "api"],
+      "risk": "medium",
+      "suggestedDomains": ["security", "middleware", "api"]
+    }
+  },
+  {
+    "id": "tc-2",
+    "task": "Fix null pointer dereference in UserController.getProfile when user is undefined",
+    "projectContext": "Node.js REST backend",
+    "expected": {
+      "category": "bugfix",
+      "subcategories": ["error_handling", "user_management"],
+      "risk": "low",
+      "suggestedDomains": ["controllers", "error_handling"]
+    }
+  },
+  {
+    "id": "tc-3",
+    "task": "Refactor monolithic database access queries into Repository pattern",
+    "projectContext": "Fullstack web app",
+    "expected": {
+      "category": "refactor",
+      "subcategories": ["architecture", "database"],
+      "risk": "medium",
+      "suggestedDomains": ["database", "architecture"]
+    }
+  },
+  {
+    "id": "tc-4",
+    "task": "Rotate compromised AWS S3 access keys and sanitize repository git history",
+    "projectContext": "Production cloud service",
+    "expected": {
+      "category": "security",
+      "subcategories": ["credentials", "devops"],
+      "risk": "high",
+      "suggestedDomains": ["security", "credentials"]
+    }
+  },
+  {
+    "id": "tc-5",
+    "task": "Add unit and integration tests for PaymentWebhook processing logic",
+    "projectContext": "Fintech payment processing pipeline",
+    "expected": {
+      "category": "test",
+      "subcategories": ["testing", "payments"],
+      "risk": "low",
+      "suggestedDomains": ["testing", "payments"]
+    }
+  }
+]

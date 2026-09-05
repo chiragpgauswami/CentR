@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+lib/
+*.tsbuildinfo
+*.tgz
+
+# CentR specific local data
+.centr/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Development & Scratch
+scratch/
+logs/
+*.log
+
+# Testing
+coverage/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Secrets & Keys
+.env*
+!.env.example
+*.pem
+*.key
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Benchmark real runs
+fixtures/real-runs/
+
+

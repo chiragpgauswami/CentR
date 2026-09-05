@@ -1,0 +1,48 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "run-database-001-centr-v1-571f74",
+  "taskId": "database-001",
+  "taskTitle": "Optimize user lookup query while preserving connection pool limits",
+  "category": "database",
+  "retrievalClass": "class_3_architectural_context",
+  "difficulty": "medium",
+  "scenario": "centr-v1",
+  "agent": "generic",
+  "executionMode": "automated",
+  "model": "none",
+  "startedAt": "2026-09-05T09:50:18.118Z",
+  "finishedAt": "2026-09-05T09:50:18.216Z",
+  "durationMs": 16.51924900000006,
+  "success": false,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 0,
+    "failed": 1
+  },
+  "agentMetrics": {
+    "toolCalls": 3,
+    "filesRead": 2,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": 617,
+    "outputTokens": 200,
+    "totalTokens": 817,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 0
+  },
+  "centrMetrics": {
+    "enabled": true,
+    "contextTokens": 89,
+    "latencyMs": 1.8744159999999965,
+    "candidateCount": 23,
+    "selectedCount": 23,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  },
+  "failureReasons": [
+    "Validation command failed: \"npm test -- validation.test.ts\" - Command failed: npm test -- validation.test.ts\nsh: vitest: command not found\n"
+  ]
+}

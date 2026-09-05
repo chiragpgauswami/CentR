@@ -1,0 +1,51 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "run-database-001-centr-v2-65283d",
+  "taskId": "database-001",
+  "taskTitle": "Optimize user lookup query while preserving connection pool limits",
+  "category": "database",
+  "retrievalClass": "class_3_architectural_context",
+  "difficulty": "medium",
+  "scenario": "centr-v2",
+  "agent": "generic",
+  "executionMode": "simulated",
+  "model": "qwen2.5:1.5b",
+  "startedAt": "2026-09-05T09:59:14.455Z",
+  "finishedAt": "2026-09-05T09:59:14.805Z",
+  "durationMs": 23.01283400000011,
+  "timing": {
+    "agentExecutionMs": 10.583292000000029,
+    "centrLatencyMs": 12.429542000000083,
+    "totalWallClockMs": 23.01283400000011
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 1,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 3,
+    "filesRead": 2,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 0
+  },
+  "centrMetrics": {
+    "enabled": true,
+    "contextItems": 23,
+    "contextTokens": 89,
+    "latencyMs": 12.429542000000083,
+    "candidateCount": 23,
+    "selectedCount": 23,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "cr-1",
+    "task": "Implement JWT authentication filter for protected endpoints",
+    "candidates": [
+      {
+        "id": "file:src/auth/jwt.ts",
+        "type": "file",
+        "name": "src/auth/jwt.ts",
+        "content": "export function signToken(payload: object): string\nexport function verifyToken(token: string): object",
+        "deterministicScore": 0.85
+      },
+      {
+        "id": "file:src/auth/middleware.ts",
+        "type": "file",
+        "name": "src/auth/middleware.ts",
+        "content": "export function authMiddleware(req: Request, res: Response, next: NextFunction)",
+        "deterministicScore": 0.8
+      },
+      {
+        "id": "file:src/utils/logger.ts",
+        "type": "file",
+        "name": "src/utils/logger.ts",
+        "content": "export function log(msg: string): void",
+        "deterministicScore": 0.6
+      },
+      {
+        "id": "memory:auth-session-decision",
+        "type": "memory",
+        "name": "Architecture: Stateless JWT vs Session",
+        "content": "Decision: Use stateless JWT in Authorization Bearer header, exp 15m",
+        "deterministicScore": 0.7
+      }
+    ],
+    "expectedTopIds": ["file:src/auth/jwt.ts", "file:src/auth/middleware.ts"]
+  }
+]

@@ -1,0 +1,46 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "run-auth-001-baseline-f0b2e9",
+  "taskId": "auth-001",
+  "taskTitle": "Prevent replay attacks and token spoofing on protected routes",
+  "category": "authentication",
+  "retrievalClass": "class_2_vocabulary_mismatch",
+  "difficulty": "medium",
+  "scenario": "baseline",
+  "agent": "generic",
+  "executionMode": "automated",
+  "model": "none",
+  "startedAt": "2026-09-05T09:50:17.730Z",
+  "finishedAt": "2026-09-05T09:50:17.819Z",
+  "durationMs": 11.069625000000002,
+  "success": false,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 0,
+    "failed": 1
+  },
+  "agentMetrics": {
+    "toolCalls": 4,
+    "filesRead": 2,
+    "filesModified": 0,
+    "filesCreated": 0,
+    "inputTokens": 535,
+    "outputTokens": 50,
+    "totalTokens": 585,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 0
+  },
+  "centrMetrics": {
+    "enabled": false,
+    "contextTokens": null,
+    "latencyMs": null,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  },
+  "failureReasons": [
+    "Validation command failed: \"npm test -- validation.test.ts\" - Command failed: npm test -- validation.test.ts\nsh: vitest: command not found\n"
+  ]
+}

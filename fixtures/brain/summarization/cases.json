@@ -1,0 +1,9 @@
+[
+  {
+    "id": "sum-1",
+    "sourceId": "file:packages/core/src/security/index.ts",
+    "content": "export function isSecretFile(filePath: string, patterns?: string[]): boolean\nexport function sanitizeForLogging(text: string): string\nexport function sanitizePath(root: string, target: string): string",
+    "maxTokens": 100,
+    "expectedTopics": ["secret detection", "logging sanitization", "path traversal protection"]
+  }
+]

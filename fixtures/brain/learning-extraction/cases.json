@@ -1,0 +1,18 @@
+[
+  {
+    "id": "le-1",
+    "task": "Fix flaky SQLite database locked errors in parallel test runner",
+    "attemptedChange": "Changed db connection mode to WAL and set busy_timeout to 5000ms",
+    "result": "success",
+    "expectedCategory": "database",
+    "expectedKeywords": ["wal", "busy_timeout", "sqlite"]
+  },
+  {
+    "id": "le-2",
+    "task": "Prevent secret token leakage in error log outputs",
+    "attemptedChange": "Added sanitizeForLogging regex filter before passing strings to logger",
+    "result": "success",
+    "expectedCategory": "security",
+    "expectedKeywords": ["sanitize", "secret", "logging"]
+  }
+]

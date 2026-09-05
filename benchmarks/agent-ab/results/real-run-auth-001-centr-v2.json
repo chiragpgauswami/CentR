@@ -1,0 +1,49 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "real-run-auth-001-centr-v2",
+  "taskId": "auth-001",
+  "taskTitle": "Prevent replay attacks and token spoofing on protected routes",
+  "category": "authentication",
+  "retrievalClass": "class_2_vocabulary_mismatch",
+  "difficulty": "medium",
+  "scenario": "centr-v2",
+  "agent": "antigravity",
+  "executionMode": "manual",
+  "model": "gemini-2.5-pro",
+  "startedAt": "2026-09-05T10:28:00.000Z",
+  "finishedAt": "2026-09-05T10:30:15.000Z",
+  "durationMs": 135000,
+  "timing": {
+    "agentExecutionMs": 135000,
+    "centrLatencyMs": 12.6,
+    "totalWallClockMs": 135013
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 5,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 4,
+    "filesRead": 1,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 21
+  },
+  "centrMetrics": {
+    "enabled": true,
+    "contextItems": 13,
+    "contextTokens": 62,
+    "latencyMs": 12.6,
+    "brainCalls": 1,
+    "brainLatencyMs": 9.8,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

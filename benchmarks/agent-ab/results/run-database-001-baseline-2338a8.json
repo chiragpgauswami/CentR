@@ -1,0 +1,43 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "run-database-001-baseline-2338a8",
+  "taskId": "database-001",
+  "taskTitle": "Optimize user lookup query while preserving connection pool limits",
+  "category": "database",
+  "retrievalClass": "class_3_architectural_context",
+  "difficulty": "medium",
+  "scenario": "baseline",
+  "agent": "generic",
+  "executionMode": "automated",
+  "model": "none",
+  "startedAt": "2026-09-05T09:51:02.073Z",
+  "finishedAt": "2026-09-05T09:51:02.392Z",
+  "durationMs": 10.336583000000019,
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 1,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 5,
+    "filesRead": 2,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": 528,
+    "outputTokens": 200,
+    "totalTokens": 728,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 0
+  },
+  "centrMetrics": {
+    "enabled": false,
+    "contextTokens": null,
+    "latencyMs": null,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

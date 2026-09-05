@@ -1,0 +1,73 @@
+{
+  "totalRecords": 48,
+  "scenarios": {
+    "baseline": {
+      "scenario": "baseline",
+      "totalRuns": 16,
+      "successfulRuns": 13,
+      "successRate": 81,
+      "averageDurationMs": 73131,
+      "averageToolCalls": 5.3,
+      "averageFilesRead": 2.4,
+      "averageTotalTokens": 681,
+      "averageRepeatedExplorations": 0,
+      "averageCentrLatencyMs": null,
+      "averageCentrTokens": null,
+      "totalBrainCalls": 0,
+      "totalBrainFallbacks": 0,
+      "totalBrainCacheHits": 0
+    },
+    "centr-v1": {
+      "scenario": "centr-v1",
+      "totalRuns": 16,
+      "successfulRuns": 13,
+      "successRate": 81,
+      "averageDurationMs": 53497,
+      "averageToolCalls": 3.4,
+      "averageFilesRead": 1.8,
+      "averageTotalTokens": 744,
+      "averageRepeatedExplorations": 0,
+      "averageCentrLatencyMs": 53.3,
+      "averageCentrTokens": 54,
+      "totalBrainCalls": 0,
+      "totalBrainFallbacks": 0,
+      "totalBrainCacheHits": 0
+    },
+    "centr-v2": {
+      "scenario": "centr-v2",
+      "totalRuns": 16,
+      "successfulRuns": 13,
+      "successRate": 81,
+      "averageDurationMs": 53503,
+      "averageToolCalls": 3.4,
+      "averageFilesRead": 1.8,
+      "averageTotalTokens": 744,
+      "averageRepeatedExplorations": 0,
+      "averageCentrLatencyMs": 60.1,
+      "averageCentrTokens": 54,
+      "totalBrainCalls": 7,
+      "totalBrainFallbacks": 0,
+      "totalBrainCacheHits": 0
+    }
+  },
+  "pairedDeltas": {
+    "v1MinusBaseline": {
+      "successRateDiff": 0,
+      "durationMsDiff": -19634,
+      "toolCallsDiff": -1.9,
+      "repeatedExplorationDiff": 0
+    },
+    "v2MinusBaseline": {
+      "successRateDiff": 0,
+      "durationMsDiff": -19628,
+      "toolCallsDiff": -1.9,
+      "repeatedExplorationDiff": 0
+    },
+    "v2MinusV1": {
+      "successRateDiff": 0,
+      "durationMsDiff": 6,
+      "toolCallsDiff": 0,
+      "repeatedExplorationDiff": 0
+    }
+  }
+}

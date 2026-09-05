@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fa-1",
+    "task": "Connect to Postgres database service",
+    "attemptedChange": "Read process.env.DATABASE_URL",
+    "error": "Error: DATABASE_URL environment variable is undefined",
+    "expected": {
+      "failureType": "configuration",
+      "rootCause": "DATABASE_URL"
+    }
+  },
+  {
+    "id": "fa-2",
+    "task": "Compile TypeScript backend",
+    "attemptedChange": "Export interface SymbolRecord",
+    "error": "error TS2322: Type 'string' is not assignable to type 'number'.",
+    "expected": {
+      "failureType": "type_error",
+      "rootCause": "TS2322"
+    }
+  },
+  {
+    "id": "fa-3",
+    "task": "Write cache dump to /var/cache/app",
+    "attemptedChange": "fs.writeFileSync('/var/cache/app/dump.bin', data)",
+    "error": "EACCES: permission denied, open '/var/cache/app/dump.bin'",
+    "expected": {
+      "failureType": "permission",
+      "rootCause": "EACCES"
+    }
+  },
+  {
+    "id": "fa-4",
+    "task": "Import compression package",
+    "attemptedChange": "import compression from 'compression'",
+    "error": "Cannot find module 'compression' or its corresponding type declarations.",
+    "expected": {
+      "failureType": "dependency",
+      "rootCause": "compression"
+    }
+  }
+]

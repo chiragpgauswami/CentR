@@ -1,0 +1,32 @@
+{
+  "name": "centr",
+  "version": "0.1.0",
+  "description": "Local-first Project Intelligence + Learning Middleware for AI Coding Agents",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*",
+    "benchmarks/agent-ab"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "format": "prettier --write \"**/*.{ts,js,json,md}\"",
+    "clean": "npm run clean --workspaces --if-present && rm -rf dist .turbo node_modules",
+    "benchmark:agents": "node benchmarks/agent-ab/dist/cli.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^20.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.5.0"
+  }
+}

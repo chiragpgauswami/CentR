@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022", "DOM"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "composite": true
+  },
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/brain" },
+    { "path": "./benchmarks/agent-ab" },
+    { "path": "./packages/cli" },
+    { "path": "./packages/mcp" }
+  ],
+  "files": [],
+  "include": []
+}

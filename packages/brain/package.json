@@ -1,0 +1,29 @@
+{
+  "name": "@centr/brain",
+  "version": "0.1.0",
+  "description": "CentR Brain - AI abstraction layer for optional local LLM intelligence",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "license": "MIT",
+  "author": "CentR Contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiragpgauswami/CentR.git",
+    "directory": "packages/brain"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "@centr/core": "0.1.0"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "run-debugging-001-baseline-494e3f",
+  "taskId": "debugging-001",
+  "taskTitle": "Fix ECONNREFUSED in database connection startup due to missing environment variable",
+  "category": "debugging",
+  "retrievalClass": "class_4_debugging",
+  "difficulty": "easy",
+  "scenario": "baseline",
+  "agent": "generic",
+  "executionMode": "simulated",
+  "model": "none",
+  "startedAt": "2026-09-05T09:59:14.807Z",
+  "finishedAt": "2026-09-05T09:59:15.136Z",
+  "durationMs": 10.569667000000209,
+  "timing": {
+    "agentExecutionMs": 10.569667000000209,
+    "centrLatencyMs": null,
+    "totalWallClockMs": 10.569667000000209
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 1,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 5,
+    "filesRead": 2,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 0
+  },
+  "centrMetrics": {
+    "enabled": false,
+    "contextItems": 0,
+    "contextTokens": null,
+    "latencyMs": null,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

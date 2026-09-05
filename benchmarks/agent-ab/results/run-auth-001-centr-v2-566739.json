@@ -1,0 +1,48 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "run-auth-001-centr-v2-566739",
+  "taskId": "auth-001",
+  "taskTitle": "Prevent replay attacks and token spoofing on protected routes",
+  "category": "authentication",
+  "retrievalClass": "class_2_vocabulary_mismatch",
+  "difficulty": "medium",
+  "scenario": "centr-v2",
+  "agent": "generic",
+  "executionMode": "automated",
+  "model": "qwen2.5:1.5b",
+  "startedAt": "2026-09-05T09:50:17.930Z",
+  "finishedAt": "2026-09-05T09:50:18.033Z",
+  "durationMs": 22.647958000000017,
+  "success": false,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 0,
+    "failed": 1
+  },
+  "agentMetrics": {
+    "toolCalls": 3,
+    "filesRead": 3,
+    "filesModified": 0,
+    "filesCreated": 0,
+    "inputTokens": 597,
+    "outputTokens": 50,
+    "totalTokens": 647,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 0
+  },
+  "centrMetrics": {
+    "enabled": true,
+    "contextTokens": 62,
+    "latencyMs": 12.398124999999993,
+    "candidateCount": 13,
+    "selectedCount": 13,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  },
+  "failureReasons": [
+    "Validation command failed: \"npm test -- validation.test.ts\" - Command failed: npm test -- validation.test.ts\nsh: vitest: command not found\n"
+  ]
+}

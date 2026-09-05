@@ -1,0 +1,34 @@
+{
+  "name": "@centr/core",
+  "version": "0.1.0",
+  "description": "CentR Core functionality",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "license": "MIT",
+  "author": "CentR Contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiragpgauswami/CentR.git",
+    "directory": "packages/core"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "better-sqlite3": "^13.0.0",
+    "glob": "^10.0.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0"
+  }
+}

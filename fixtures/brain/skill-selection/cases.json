@@ -1,0 +1,41 @@
+[
+  {
+    "id": "ss-1",
+    "task": "Add index to SQLite table to speed up query performance",
+    "candidateSkills": [
+      {
+        "id": "skill:sqlite-indexing",
+        "name": "SQLite Query Optimization",
+        "description": "Strategies for indexing and tuning SQLite queries using EXPLAIN QUERY PLAN"
+      },
+      {
+        "id": "skill:react-rendering",
+        "name": "React Component Memoization",
+        "description": "Optimizing virtual DOM re-renders using useMemo and useCallback"
+      },
+      {
+        "id": "skill:docker-multistage",
+        "name": "Docker Multi-stage Builds",
+        "description": "Minimizing production container images with multi-stage Dockerfiles"
+      }
+    ],
+    "expectedSelectedSkillIds": ["skill:sqlite-indexing"]
+  },
+  {
+    "id": "ss-2",
+    "task": "Build multi-stage Dockerfile for production deployment",
+    "candidateSkills": [
+      {
+        "id": "skill:sqlite-indexing",
+        "name": "SQLite Query Optimization",
+        "description": "Strategies for indexing and tuning SQLite queries using EXPLAIN QUERY PLAN"
+      },
+      {
+        "id": "skill:docker-multistage",
+        "name": "Docker Multi-stage Builds",
+        "description": "Minimizing production container images with multi-stage Dockerfiles"
+      }
+    ],
+    "expectedSelectedSkillIds": ["skill:docker-multistage"]
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "run-debugging-001-centr-v2-9c6f7f",
+  "taskId": "debugging-001",
+  "taskTitle": "Fix ECONNREFUSED in database connection startup due to missing environment variable",
+  "category": "debugging",
+  "retrievalClass": "class_4_debugging",
+  "difficulty": "easy",
+  "scenario": "centr-v2",
+  "agent": "generic",
+  "executionMode": "simulated",
+  "model": "qwen2.5:1.5b",
+  "startedAt": "2026-09-05T09:59:15.477Z",
+  "finishedAt": "2026-09-05T09:59:15.826Z",
+  "durationMs": 21.82837500000005,
+  "timing": {
+    "agentExecutionMs": 10.351874999999836,
+    "centrLatencyMs": 11.476500000000215,
+    "totalWallClockMs": 21.82837500000005
+  },
+  "success": true,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 1,
+    "failed": 0
+  },
+  "agentMetrics": {
+    "toolCalls": 3,
+    "filesRead": 2,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": null,
+    "outputTokens": null,
+    "totalTokens": null,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 0
+  },
+  "centrMetrics": {
+    "enabled": true,
+    "contextItems": 5,
+    "contextTokens": 37,
+    "latencyMs": 11.476500000000215,
+    "candidateCount": 5,
+    "selectedCount": 5,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  }
+}

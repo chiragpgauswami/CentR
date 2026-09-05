@@ -1,0 +1,46 @@
+{
+  "benchmarkVersion": "1.0",
+  "runId": "run-debugging-001-baseline-75f046",
+  "taskId": "debugging-001",
+  "taskTitle": "Fix ECONNREFUSED in database connection startup due to missing environment variable",
+  "category": "debugging",
+  "retrievalClass": "class_4_debugging",
+  "difficulty": "easy",
+  "scenario": "baseline",
+  "agent": "generic",
+  "executionMode": "automated",
+  "model": "none",
+  "startedAt": "2026-09-05T09:50:18.339Z",
+  "finishedAt": "2026-09-05T09:50:18.425Z",
+  "durationMs": 10.990125000000035,
+  "success": false,
+  "requiresManualReview": false,
+  "tests": {
+    "executed": true,
+    "passed": 0,
+    "failed": 1
+  },
+  "agentMetrics": {
+    "toolCalls": 5,
+    "filesRead": 2,
+    "filesModified": 1,
+    "filesCreated": 0,
+    "inputTokens": 530,
+    "outputTokens": 200,
+    "totalTokens": 730,
+    "repeatedExplorationCount": 0,
+    "patchSizeLines": 0
+  },
+  "centrMetrics": {
+    "enabled": false,
+    "contextTokens": null,
+    "latencyMs": null,
+    "brainCalls": 0,
+    "brainLatencyMs": 0,
+    "cacheHits": 0,
+    "fallbacks": 0
+  },
+  "failureReasons": [
+    "Validation command failed: \"npm test -- validation.test.ts\" - Command failed: npm test -- validation.test.ts\nsh: vitest: command not found\n"
+  ]
+}
