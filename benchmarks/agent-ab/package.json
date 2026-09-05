@@ -1,6 +1,6 @@
 {
   "name": "@centr-ai/benchmark-ab",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Scientific real-agent A/B benchmark harness for CentR",
   "type": "module",
   "main": "./dist/index.js",
@@ -44,8 +44,8 @@
     "CHANGELOG.md"
   ],
   "dependencies": {
-    "@centr-ai/core": "0.1.1",
-    "@centr-ai/brain": "0.1.1",
+    "@centr-ai/core": "0.1.2",
+    "@centr-ai/brain": "0.1.2",
     "chalk": "^5.3.0"
   }
 }

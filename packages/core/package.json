@@ -1,6 +1,6 @@
 {
   "name": "@centr-ai/core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Local-first project intelligence, AST indexing, FTS5 search, memory, and token-budgeted context for AI coding agents",
   "type": "module",
   "main": "./dist/index.js",
@@ -52,7 +52,6 @@
   ],
   "dependencies": {
     "better-sqlite3": "^13.0.0",
-    "glob": "^10.0.0",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
