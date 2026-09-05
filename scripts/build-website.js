@@ -1,6 +1,6 @@
+import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
-import { execSync } from 'child_process';
 
 console.log('=== CentR Website Build & Verification Gate ===\n');
 
@@ -39,7 +39,10 @@ for (const file of essentialFiles) {
 console.log('\n3. Auditing HTML files for broken links, missing assets & anchors...');
 const htmlFiles = [
   path.resolve(WEBSITE_DIR, 'index.html'),
-  ...fs.readdirSync(DOCS_DIR).filter(f => f.endsWith('.html')).map(f => path.resolve(DOCS_DIR, f))
+  ...fs
+    .readdirSync(DOCS_DIR)
+    .filter((f) => f.endsWith('.html'))
+    .map((f) => path.resolve(DOCS_DIR, f)),
 ];
 
 let totalLinksChecked = 0;
@@ -113,7 +116,9 @@ for (const htmlPath of htmlFiles) {
         const targetContent = fs.readFileSync(resolved, 'utf8');
         const targetIdPattern = new RegExp(`id=["']${hash}["']`);
         if (!targetIdPattern.test(targetContent)) {
-          console.error(`  ✗ [BROKEN TARGET ANCHOR] ${relPath} -> ${href} (hash '${hash}' not in ${filePath})`);
+          console.error(
+            `  ✗ [BROKEN TARGET ANCHOR] ${relPath} -> ${href} (hash '${hash}' not in ${filePath})`,
+          );
           errors++;
         }
       }
