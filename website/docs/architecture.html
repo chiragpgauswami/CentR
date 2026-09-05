@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture Deep Dive — CentR Documentation</title>
+  <meta name="description" content="System architecture, AST indexer, SQLite+FTS5, and Brain boundaries.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="../index.html" class="brand">
+        <img src="../assets/icon.svg" alt="CentR Icon" class="brand-icon">
+        <span>Cent<span style="color: var(--accent);">R</span></span>
+        <span class="brand-tag">v0.1.0</span>
+      </a>
+
+      <nav class="nav">
+        <a href="getting-started.html" class="nav-link ">Getting Started</a>
+        <a href="architecture.html" class="nav-link active">Architecture</a>
+        <a href="memory.html" class="nav-link ">Memory</a>
+        <a href="learning.html" class="nav-link ">Learning</a>
+        <a href="brain.html" class="nav-link ">Local Brain</a>
+        <a href="mcp.html" class="nav-link ">MCP</a>
+        <a href="cli.html" class="nav-link ">CLI</a>
+        <a href="benchmarks.html" class="nav-link ">Benchmarks</a>
+        <a href="security.html" class="nav-link ">Security</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span id="theme-icon">☀️</span>
+        </button>
+        <a href="https://github.com/chiragpgauswami/CentR" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Docs Container -->
+  <div class="container">
+    <div class="docs-layout">
+      <div class="docs-sidebar">
+    <div style="margin-bottom: 1.25rem;">
+      <input type="text" id="docs-search" placeholder="Search documentation..." style="width: 100%; padding: 0.45rem 0.75rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.85rem;" />
+    </div><div class="sidebar-group">
+      <div class="sidebar-title">Introduction</div><a href="getting-started.html" class="sidebar-link ">Getting Started</a><a href="architecture.html" class="sidebar-link active">Architecture</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Core Intelligence</div><a href="memory.html" class="sidebar-link ">Project Memory</a><a href="learning.html" class="sidebar-link ">Global Learning</a><a href="brain.html" class="sidebar-link ">Optional Local Brain</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Tools & Integrations</div><a href="mcp.html" class="sidebar-link ">Model Context Protocol (MCP)</a><a href="cli.html" class="sidebar-link ">CLI Command Reference</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Engineering & Standards</div><a href="security.html" class="sidebar-link ">Security & Privacy</a><a href="benchmarks.html" class="sidebar-link ">Benchmarks & Validation</a><a href="contributing.html" class="sidebar-link ">Contributing Guide</a></div></div>
+      <main class="docs-content">
+        
+<h1>CentR Architecture Deep Dive</h1>
+<p>CentR is architected on a single inviolable principle: <strong>Deterministic Core is the authority; the optional Local Brain is an advisor.</strong></p>
+
+<div style="margin: 2rem 0;">
+  <img src="../assets/architecture.svg" alt="Architecture Diagram" style="width: 100%; border-radius: 12px; border: 1px solid var(--border);" />
+</div>
+
+<h2>The Two-Tier Subsystem</h2>
+<h3>1. Deterministic Core (The Authority)</h3>
+<ul>
+  <li><strong>AST Indexer</strong>: Extracts qualified function signatures, classes, interfaces, and exported symbols.</li>
+  <li><strong>SQLite 3 + WAL Mode</strong>: Fast concurrent in-process database storage.</li>
+  <li><strong>FTS5 BM25 Engine</strong>: Sub-2ms full-text ranking across symbols, file paths, and project memory.</li>
+  <li><strong>Token Budgeter</strong>: Greedy relevance packing to fit within context limits (e.g. 4000 tokens).</li>
+  <li><strong>Project Memory</strong>: Project-isolated institutional memory.</li>
+  <li><strong>Global Learning</strong>: Cross-project evidence-backed knowledge.</li>
+</ul>
+
+<h3>2. Optional Local Brain (The Advisor)</h3>
+<ul>
+  <li>Powered by local Small Language Models (0.5B–7B parameters via Ollama or custom local providers).</li>
+  <li>Semantic re-ranking, task classification, and failure diagnosis.</li>
+  <li><strong>Hallucination Guard</strong>: Strictly prunes any invented candidate IDs; only Core candidates can be returned.</li>
+  <li><strong>Deterministic Fallback</strong>: If the local SLM is absent, slow, or times out, CentR automatically falls back to Core heuristics.</li>
+</ul>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>MIT © 2024–2026 CentR Contributors. Local-first developer infrastructure.</span>
+        <span><a href="../index.html">← Back to Homepage</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

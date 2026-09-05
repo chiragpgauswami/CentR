@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLI Command Reference — CentR Documentation</title>
+  <meta name="description" content="Searchable reference of all 12 CentR CLI commands.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="../index.html" class="brand">
+        <img src="../assets/icon.svg" alt="CentR Icon" class="brand-icon">
+        <span>Cent<span style="color: var(--accent);">R</span></span>
+        <span class="brand-tag">v0.1.0</span>
+      </a>
+
+      <nav class="nav">
+        <a href="getting-started.html" class="nav-link ">Getting Started</a>
+        <a href="architecture.html" class="nav-link ">Architecture</a>
+        <a href="memory.html" class="nav-link ">Memory</a>
+        <a href="learning.html" class="nav-link ">Learning</a>
+        <a href="brain.html" class="nav-link ">Local Brain</a>
+        <a href="mcp.html" class="nav-link ">MCP</a>
+        <a href="cli.html" class="nav-link active">CLI</a>
+        <a href="benchmarks.html" class="nav-link ">Benchmarks</a>
+        <a href="security.html" class="nav-link ">Security</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span id="theme-icon">☀️</span>
+        </button>
+        <a href="https://github.com/chiragpgauswami/CentR" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Docs Container -->
+  <div class="container">
+    <div class="docs-layout">
+      <div class="docs-sidebar">
+    <div style="margin-bottom: 1.25rem;">
+      <input type="text" id="docs-search" placeholder="Search documentation..." style="width: 100%; padding: 0.45rem 0.75rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.85rem;" />
+    </div><div class="sidebar-group">
+      <div class="sidebar-title">Introduction</div><a href="getting-started.html" class="sidebar-link ">Getting Started</a><a href="architecture.html" class="sidebar-link ">Architecture</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Core Intelligence</div><a href="memory.html" class="sidebar-link ">Project Memory</a><a href="learning.html" class="sidebar-link ">Global Learning</a><a href="brain.html" class="sidebar-link ">Optional Local Brain</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Tools & Integrations</div><a href="mcp.html" class="sidebar-link ">Model Context Protocol (MCP)</a><a href="cli.html" class="sidebar-link active">CLI Command Reference</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Engineering & Standards</div><a href="security.html" class="sidebar-link ">Security & Privacy</a><a href="benchmarks.html" class="sidebar-link ">Benchmarks & Validation</a><a href="contributing.html" class="sidebar-link ">Contributing Guide</a></div></div>
+      <main class="docs-content">
+        
+<h1>CLI Command Reference</h1>
+<p>Complete documentation of all commands exposed by the <code>centr</code> command-line interface.</p>
+
+<h2>Primary Commands</h2>
+<div class="table-wrapper">
+  <table>
+    <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><code>centr init</code></td><td>Initialize CentR and build AST index</td><td><code>centr init</code></td></tr>
+      <tr><td><code>centr sync</code></td><td>Incrementally sync changed files via SHA-256</td><td><code>centr sync</code></td></tr>
+      <tr><td><code>centr status</code></td><td>Display project intelligence status & stats</td><td><code>centr status</code></td></tr>
+      <tr><td><code>centr search &lt;query&gt;</code></td><td>Ranked BM25 search across symbols & paths</td><td><code>centr search "auth"</code></td></tr>
+      <tr><td><code>centr context &lt;task&gt;</code></td><td>Generate token-budgeted context for an agent</td><td><code>centr context "Fix login bug"</code></td></tr>
+      <tr><td><code>centr symbol &lt;name&gt;</code></td><td>Lookup symbol definition and references</td><td><code>centr symbol "UserController"</code></td></tr>
+      <tr><td><code>centr memory &lt;cmd&gt;</code></td><td>Manage project-isolated institutional memories</td><td><code>centr memory add ...</code></td></tr>
+      <tr><td><code>centr learn &lt;cmd&gt;</code></td><td>Manage cross-project evidence-backed learnings</td><td><code>centr learn list</code></td></tr>
+      <tr><td><code>centr skills &lt;cmd&gt;</code></td><td>Register and search development skills</td><td><code>centr skills list</code></td></tr>
+      <tr><td><code>centr doctor</code></td><td>Verify environment, SQLite integrity, and schema</td><td><code>centr doctor</code></td></tr>
+      <tr><td><code>centr benchmark</code></td><td>Run latency SLA and real-agent A/B benchmarks</td><td><code>centr benchmark</code></td></tr>
+      <tr><td><code>centr brain &lt;cmd&gt;</code></td><td>Manage optional local SLM Brain</td><td><code>centr brain recommend</code></td></tr>
+    </tbody>
+  </table>
+</div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>MIT © 2024–2026 CentR Contributors. Local-first developer infrastructure.</span>
+        <span><a href="../index.html">← Back to Homepage</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

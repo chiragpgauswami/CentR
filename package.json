@@ -19,7 +19,9 @@
     "typecheck": "npm run typecheck --workspaces --if-present",
     "format": "prettier --write \"**/*.{ts,js,json,md}\"",
     "clean": "npm run clean --workspaces --if-present && rm -rf dist .turbo node_modules",
-    "benchmark:agents": "node benchmarks/agent-ab/dist/cli.js"
+    "benchmark:agents": "node benchmarks/agent-ab/dist/cli.js",
+    "website:build": "node scripts/build-website.js",
+    "website:dev": "npx serve website"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",

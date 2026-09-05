@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security & Privacy — CentR Documentation</title>
+  <meta name="description" content="Zero telemetry policy, secret scanning, and path traversal defense.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="../index.html" class="brand">
+        <img src="../assets/icon.svg" alt="CentR Icon" class="brand-icon">
+        <span>Cent<span style="color: var(--accent);">R</span></span>
+        <span class="brand-tag">v0.1.0</span>
+      </a>
+
+      <nav class="nav">
+        <a href="getting-started.html" class="nav-link ">Getting Started</a>
+        <a href="architecture.html" class="nav-link ">Architecture</a>
+        <a href="memory.html" class="nav-link ">Memory</a>
+        <a href="learning.html" class="nav-link ">Learning</a>
+        <a href="brain.html" class="nav-link ">Local Brain</a>
+        <a href="mcp.html" class="nav-link ">MCP</a>
+        <a href="cli.html" class="nav-link ">CLI</a>
+        <a href="benchmarks.html" class="nav-link ">Benchmarks</a>
+        <a href="security.html" class="nav-link active">Security</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span id="theme-icon">☀️</span>
+        </button>
+        <a href="https://github.com/chiragpgauswami/CentR" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Docs Container -->
+  <div class="container">
+    <div class="docs-layout">
+      <div class="docs-sidebar">
+    <div style="margin-bottom: 1.25rem;">
+      <input type="text" id="docs-search" placeholder="Search documentation..." style="width: 100%; padding: 0.45rem 0.75rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.85rem;" />
+    </div><div class="sidebar-group">
+      <div class="sidebar-title">Introduction</div><a href="getting-started.html" class="sidebar-link ">Getting Started</a><a href="architecture.html" class="sidebar-link ">Architecture</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Core Intelligence</div><a href="memory.html" class="sidebar-link ">Project Memory</a><a href="learning.html" class="sidebar-link ">Global Learning</a><a href="brain.html" class="sidebar-link ">Optional Local Brain</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Tools & Integrations</div><a href="mcp.html" class="sidebar-link ">Model Context Protocol (MCP)</a><a href="cli.html" class="sidebar-link ">CLI Command Reference</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Engineering & Standards</div><a href="security.html" class="sidebar-link active">Security & Privacy</a><a href="benchmarks.html" class="sidebar-link ">Benchmarks & Validation</a><a href="contributing.html" class="sidebar-link ">Contributing Guide</a></div></div>
+      <main class="docs-content">
+        
+<h1>Security & Privacy Policy</h1>
+<p>CentR is engineered with a strict zero-trust posture toward cloud telemetry and code leakage.</p>
+
+<h2>Non-Negotiable Privacy Guarantees</h2>
+<ul>
+  <li><strong>100% Local Storage</strong>: Indexes, memories, and learnings are stored in local SQLite databases (<code>.centr/centr.db</code> and <code>~/.centr/learning.db</code>).</li>
+  <li><strong>Zero Cloud Telemetry</strong>: No code, tokens, file paths, or telemetry are ever transmitted to remote cloud servers.</li>
+  <li><strong>Automated Secret Redaction</strong>: Automatic exclusion of <code>.env</code>, <code>.pem</code>, <code>.key</code>, AWS tokens, GitHub PATs, and private keys via <code>DEFAULT_SECRET_PATTERNS</code>.</li>
+  <li><strong>Path Traversal Defense</strong>: All file accesses are verified and constrained within the project root via <code>sanitizePath</code>.</li>
+  <li><strong>Parameterized SQL</strong>: 100% of database queries use SQLite parameterized placeholders (<code>?</code>), preventing SQL injection.</li>
+  <li><strong>Sandboxed Brain</strong>: The optional local Brain cannot execute shell commands, edit files directly, or escape candidate sets.</li>
+</ul>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>MIT © 2024–2026 CentR Contributors. Local-first developer infrastructure.</span>
+        <span><a href="../index.html">← Back to Homepage</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>

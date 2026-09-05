@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" width="480" alt="CentR Logo" />
+  <img src="https://raw.githubusercontent.com/chiragpgauswami/CentR/main/assets/logo.svg" width="480" alt="CentR Logo" />
 </p>
 
 <p align="center">
@@ -12,6 +12,15 @@
   <img src="https://img.shields.io/badge/tests-298%20passed-10B981.svg" alt="Tests 298 passed" />
   <img src="https://img.shields.io/badge/telemetry-zero%20cloud-06B6D4.svg" alt="Zero Cloud Telemetry" />
   <img src="https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg" alt="Node >= 20" />
+</p>
+
+<p align="center">
+  <a href="https://chiragpgauswami.github.io/CentR/"><strong>Documentation Website</strong></a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#-core-architecture">Architecture</a> •
+  <a href="#-mcp-integration-claude-code--cursor--codex">MCP Setup</a> •
+  <a href="#-benchmark-findings">Benchmarks</a> •
+  <a href="docs/ARCHITECTURE.md">Deep Dive</a>
 </p>
 
 ---
@@ -36,7 +45,7 @@
 > **"Store everything useful. Send almost nothing."**
 
 <p align="center">
-  <img src="assets/architecture.svg" width="900" alt="CentR Architecture" />
+  <img src="https://raw.githubusercontent.com/chiragpgauswami/CentR/main/assets/architecture.svg" width="900" alt="CentR Architecture" />
 </p>
 
 ### The Two-Tier Architecture:
@@ -96,7 +105,7 @@ centr symbol "AuthService"
 ## 🔄 Lifecycle Workflow
 
 <p align="center">
-  <img src="assets/centr-overview.svg" width="900" alt="CentR Lifecycle Overview" />
+  <img src="https://raw.githubusercontent.com/chiragpgauswami/CentR/main/assets/centr-overview.svg" width="900" alt="CentR Lifecycle Overview" />
 </p>
 
 ---

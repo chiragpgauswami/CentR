@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" width="480" alt="CentR Logo" />
+  <img src="https://raw.githubusercontent.com/chiragpgauswami/CentR/main/assets/logo.svg" width="480" alt="CentR Logo" />
 </p>
 
 <p align="center">
@@ -36,7 +36,7 @@
 > **"Store everything useful. Send almost nothing."**
 
 <p align="center">
-  <img src="assets/architecture.svg" width="900" alt="CentR Architecture" />
+  <img src="https://raw.githubusercontent.com/chiragpgauswami/CentR/main/assets/architecture.svg" width="900" alt="CentR Architecture" />
 </p>
 
 ### The Two-Tier Architecture:
@@ -96,7 +96,7 @@ centr symbol "AuthService"
 ## 🔄 Lifecycle Workflow
 
 <p align="center">
-  <img src="assets/centr-overview.svg" width="900" alt="CentR Lifecycle Overview" />
+  <img src="https://raw.githubusercontent.com/chiragpgauswami/CentR/main/assets/centr-overview.svg" width="900" alt="CentR Lifecycle Overview" />
 </p>
 
 ---

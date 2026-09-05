@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benchmarks & Validation — CentR Documentation</title>
+  <meta name="description" content="Real-agent A/B benchmark findings, disclosures, and reproduction guide.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <a href="../index.html" class="brand">
+        <img src="../assets/icon.svg" alt="CentR Icon" class="brand-icon">
+        <span>Cent<span style="color: var(--accent);">R</span></span>
+        <span class="brand-tag">v0.1.0</span>
+      </a>
+
+      <nav class="nav">
+        <a href="getting-started.html" class="nav-link ">Getting Started</a>
+        <a href="architecture.html" class="nav-link ">Architecture</a>
+        <a href="memory.html" class="nav-link ">Memory</a>
+        <a href="learning.html" class="nav-link ">Learning</a>
+        <a href="brain.html" class="nav-link ">Local Brain</a>
+        <a href="mcp.html" class="nav-link ">MCP</a>
+        <a href="cli.html" class="nav-link ">CLI</a>
+        <a href="benchmarks.html" class="nav-link active">Benchmarks</a>
+        <a href="security.html" class="nav-link ">Security</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <span id="theme-icon">☀️</span>
+        </button>
+        <a href="https://github.com/chiragpgauswami/CentR" target="_blank" rel="noopener noreferrer" class="btn-github">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Docs Container -->
+  <div class="container">
+    <div class="docs-layout">
+      <div class="docs-sidebar">
+    <div style="margin-bottom: 1.25rem;">
+      <input type="text" id="docs-search" placeholder="Search documentation..." style="width: 100%; padding: 0.45rem 0.75rem; background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-size: 0.85rem;" />
+    </div><div class="sidebar-group">
+      <div class="sidebar-title">Introduction</div><a href="getting-started.html" class="sidebar-link ">Getting Started</a><a href="architecture.html" class="sidebar-link ">Architecture</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Core Intelligence</div><a href="memory.html" class="sidebar-link ">Project Memory</a><a href="learning.html" class="sidebar-link ">Global Learning</a><a href="brain.html" class="sidebar-link ">Optional Local Brain</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Tools & Integrations</div><a href="mcp.html" class="sidebar-link ">Model Context Protocol (MCP)</a><a href="cli.html" class="sidebar-link ">CLI Command Reference</a></div><div class="sidebar-group">
+      <div class="sidebar-title">Engineering & Standards</div><a href="security.html" class="sidebar-link ">Security & Privacy</a><a href="benchmarks.html" class="sidebar-link active">Benchmarks & Validation</a><a href="contributing.html" class="sidebar-link ">Contributing Guide</a></div></div>
+      <main class="docs-content">
+        
+<h1>Real-Agent A/B Benchmark Validation</h1>
+<p>CentR includes an objective, reproducible <strong>Agent A/B Benchmark Harness</strong> evaluating 27 real software engineering tasks across 7 categories.</p>
+
+<div class="callout">
+  <div class="callout-title">Preliminary Interactive Benchmark Disclosure</div>
+  <p>Evaluated using <strong>Google Antigravity (Gemini 2.5 Pro)</strong> on clean, isolated workspaces across 7 tasks and 3 scenarios (21 total runs). Agent token telemetry was unobserved at the tool boundary, so token metrics remain null (zero fabrication). Observed tool call counts and test results represent verified executions.</p>
+</div>
+
+<h2>Summary of Results (7 Tasks, 21 Verified Runs)</h2>
+<div class="table-wrapper">
+  <table>
+    <thead><tr><th>Scenario</th><th>Mode</th><th>Avg Completion Time</th><th>Observed Tool Calls</th><th>Test Pass Rate</th><th>Git Patch Size</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Baseline (No CentR)</strong></td><td>manual</td><td>167,143 ms</td><td>6.0 calls</td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
+      <tr><td><strong>CentR V1 (Core)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (-33.3%)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
+      <tr><td><strong>CentR V2 (Hybrid)</strong></td><td>manual</td><td>122,263 ms (-45s)</td><td><strong>4.0 calls (-33.3%)</strong></td><td>100% (7/7 passed)</td><td>+23 lines avg</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Key Findings</h2>
+<ul>
+  <li><strong>Turn 1 Pinpointing</strong>: In every Baseline run, the agent executed 2 initial exploratory file reads. CentR supplied immediate symbol locations, saving 2 tool calls per task.</li>
+  <li><strong>Sub-2ms Retrieval SLA</strong>: CentR V1 retrieval added only 1.2 ms to task duration.</li>
+  <li><strong>Zero Cloud Tokens</strong>: $0.00 API cost across all runs.</li>
+</ul>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>MIT © 2024–2026 CentR Contributors. Local-first developer infrastructure.</span>
+        <span><a href="../index.html">← Back to Homepage</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../scripts/main.js"></script>
+</body>
+</html>
